@@ -20,7 +20,5 @@ EDTA.pl \
   --step anno  \
   --overwrite 1  \
   --cds ${cds} \
-  --anno 1 \
-  --evaluate 1 \
   --u 1.3e-8 \
   --threads 18
