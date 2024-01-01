@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=EDTA
+#SBATCH --job-name=repeatmasker
 #SBATCH --partition=batch
 #SBATCH --ntasks=1
 #SBATCH --mem=400G
