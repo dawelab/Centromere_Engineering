@@ -14,4 +14,5 @@ ml RepeatMasker/4.1.5-foss-2022a
 genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa
 cds=/scratch/yz77862/B73v5_genome/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.cds.fa
 
-RepeatMasker -q -nolow -species Zea_mays -no_is ${genome}
+#RepeatMasker -q -nolow -species Zea_mays -no_is ${genome}
+RepeatMasker -e ncbi -pa 18 -species Zea_mays -s -gff ${genome}
