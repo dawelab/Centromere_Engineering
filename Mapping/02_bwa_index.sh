@@ -14,18 +14,21 @@
 
 ml BWA/0.7.17-GCCcore-11.3.0
 cd /scratch/yz77862/MaizeGenome
-ABS_assembly=/scratch/yz77862/MaizeGenome/AbsGenomePBHIFI_version_1.fa
-A188=/scratch/yz77862/MaizeGenome/Zm-A188-REFERENCE-KSU-1.0.fa
-B73=/scratch/yz77862/MaizeGenome/Zm-B73-REFERENCE-NAM-5.0.fa
-Mo17=/scratch/yz77862/MaizeGenome/Zm-Mo17-REFERENCE-CAU-2.0.fa
-W22=/scratch/yz77862/MaizeGenome/Zm-W22-REFERENCE-NRGENE-2.0.fa
 
 #####Change the naming of chr in genome files
-for i in 1 2 3;do
-sed 's/chr'${i}'/chr'${i}'_B73//g' ${chr.txt}
-done
+awk -v output_file="AbsGenomePBHIFI_version_1_addname.fa" '/^>/ {sub(/$/, "_ABS", $0); print > output_file; next} {print >> output_file}' AbsGenomePBHIFI_version_1.fa
+awk -v output_file="Zm-A188-REFERENCE-KSU-1.0_addname.fa" '/^>/ {sub(/$/, "_A188", $0); print > output_file; next} {print >> output_file}' Zm-A188-REFERENCE-KSU-1.0.fa
+awk -v output_file="Zm-Mo17-REFERENCE-CAU-2.0_addname.fa" '/^>/ {sub(/$/, "_Mo17", $0); print > output_file; next} {print >> output_file}' Zm-Mo17-REFERENCE-CAU-2.0.fa
+awk -v output_file="Zm-B73-REFERENCE-NAM-5.0_addname.fa" '/^>/ {sub(/$/, "_B73", $0); print > output_file; next} {print >> output_file}' Zm-B73-REFERENCE-NAM-5.0.fa
+awk -v output_file="Zm-W22-REFERENCE-NRGENE-2.0_addname.fa" '/^>/ {sub(/$/, "_W22", $0); print > output_file; next} {print >> output_file}' Zm-W22-REFERENCE-NRGENE-2.0.fa
 
 ###Concat two different genome together
+ABS_assembly=/scratch/yz77862/MaizeGenome/AbsGenomePBHIFI_version_1_addname.fa
+A188=/scratch/yz77862/MaizeGenome/Zm-A188-REFERENCE-KSU-1.0_addname.fa
+B73=/scratch/yz77862/MaizeGenome/Zm-B73-REFERENCE-NAM-5.0_addname.fa
+Mo17=/scratch/yz77862/MaizeGenome/Zm-Mo17-REFERENCE-CAU-2.0_addname.fa
+W22=/scratch/yz77862/MaizeGenome/Zm-W22-REFERENCE-NRGENE-2.0_addname.fa
+
 cat ${ABS} ${A188} > ABS_A188.fa
 cat ${ABS} ${B73} > ABS_B73.fa
 cat ${ABS} ${Mo17} > ABS_Mo17.fa
@@ -37,10 +40,13 @@ cat ${A188} ${W22} > A188_W22.fa
 
 cat ${B73} ${Mo17} > B73_Mo17.fa
 cat ${B73} ${W22} > B73_W22.fa
-
 cat ${Mo17} ${W22} > Mo17_W22.fa
 
-for i in *fa;do bwa index ${i};done
+for i in *_addname.fa;do bwa index ${i};done
+for i in A188*.fa;do bwa index ${i};done
+for i in B73*.fa;do bwa index ${i};done
+for i in Mo17*.fa;do bwa index ${i};done
+
 
 
 ########################################################################################
