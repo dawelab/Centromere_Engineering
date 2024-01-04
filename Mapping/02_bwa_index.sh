@@ -47,8 +47,6 @@ for i in A188*.fa;do bwa index ${i};done
 for i in B73*.fa;do bwa index ${i};done
 for i in Mo17*.fa;do bwa index ${i};done
 
-
-
 ########################################################################################
 ####Mapping####
 ########################################################################################
@@ -91,7 +89,3 @@ done
 het1=/scratch/yz77862/ABS_PacBio_version1/LexA_CENH3_abs4_S23_R1_001.fastq.gz.trimmed.fastq.gz
 het2=/scratch/yz77862/ABS_PacBio_version1/LexA_CENH3_abs4_S23_R2_001.fastq.gz.trimmed.fastq.gz
 W22=/scratch/yz77862/ABS_PacBio_version1/W22-6.fastq.gz.trimmed.fastq.gz
-
-
-
-done
