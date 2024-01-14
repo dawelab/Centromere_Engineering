@@ -16,9 +16,8 @@ bedtools getfasta -fi  ${nopost} -bed ptg000174l.bed  -fo ptg000174l.fa
 
 #use minimap to generate the aligment files, it can tell us the orientation of contigs
 ml minimap2
-minimap2 -cx asm5 ptg000016l.fa ptg000174l.fa > ptg000016l_ptg000174l.paf
-minimap2 -cx asm5 ptg000513l.fa ptg000081l.fa > ptg000513l_ptg000081l.paf
-minimap2 -cx asm5 ptg000513l.fa ptg000174l.fa > ptg000513l_ptg000174l.paf 
+minimap2 -cx asm5 ptg000016l.fa ptg000513l.fa > ptg000016l_ptg000513l.paf
+minimap2 -cx asm5 ptg000081l.fa ptg000174l.fa > ptg000081l_ptg000174l.paf 
 
 ##use blast to generate the identity files, identity the overlapping regiion for ABS locus assembly,
 #it can tell us the location we should scaffold the contigs.
@@ -29,6 +28,6 @@ makeblastdb -in ptg000513l.fa -input_type fasta -dbtype nucl -out ptg000513l.fa_
 makeblastdb -in ptg000174l.fa -input_type fasta -dbtype nucl -out ptg000174l.fa_blastdb
 
 blastn -query ptg000016l.fa -db ptg000513l.fa_blastdb -out ptg000016l_blast_ptg000513l_result.xls -task blastn -outfmt 6
+blastn -query ptg000081l.fa -db ptg000174l.fa_blastdb -out ptg000081l_blast_ptg000174l_result.xls -task blastn -outfmt 6
 blastn -query ptg000513l.fa -db ptg000174l.fa_blastdb -out ptg000513l_blast_ptg000174l_result.xls -task blastn -outfmt 6
 blastn -query ptg000513l.fa -db ptg000081l.fa_blastdb -out ptg000513l_blast_ptg000081l_result.xls -task blastn -outfmt 6
-blastn -query ptg000081l.fa -db ptg000174l.fa_blastdb -out ptg000081l_blast_ptg000174l_result.xls -task blastn -outfmt 6
