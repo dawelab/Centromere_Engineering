@@ -13,26 +13,26 @@ echo "#SBATCH --error=${i}_CUTnTag_mapping.err" >> ${out}
 echo " " >> ${out}   
 echo "ml BWA/0.7.17-GCCcore-11.3.0" >> ${out}   
 echo "ml BEDTools/2.29.2-GCC-8.3.0" >> ${out}   
-echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}   
-echo "ml IGV/2.16.1-Java-11" >> ${out}   
+echo "#ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}   
+echo "#ml IGV/2.16.1-Java-11" >> ${out}   
 echo "  " >> ${out}   
 echo "############################################" >> ${out}   
 echo "##Bulid the index for ABS assembly files####" >> ${out}   
 echo "############################################" >> ${out}   
 echo "#cd /scratch/yz77862/ABS_PacBio_version1" >> ${out}   
-echo "#ABS_assembly=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}   
+echo "ABS_assembly=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}   
 echo "#bwa index ${ABS_assembly}" >> ${out}   
 echo "  " >> ${out}   
 echo "########################################################################################" >> ${out}   
 echo "####Download data, trim the adaptors and map to ABS genome####" >> ${out}   
 echo "########################################################################################" >> ${out}   
 echo "cd /scratch/yz77862/CUTnTag_neo4Ls" >> ${out}   
-echo "ml SRA-Toolkit" >> ${out}   
-echo "ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out}   
+echo "#ml SRA-Toolkit" >> ${out}   
+echo "#ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out}   
 echo "##Download the neo4Ls CUT&Tag data using SRAtools" >> ${out}   
-echo "fasterq-dump --split-files ${i}" >> ${out}   
+echo "#fasterq-dump --split-files ${i}" >> ${out}   
 echo "##Trim the adaptors" >> ${out}   
-echo "trim_galore --fastqc --gzip --paired ${i}_1.fastq ${i}_2.fastq -o . -a CTGTCTCTTATACACATCT" >> ${out}   
+echo "#trim_galore --fastqc --gzip --paired ${i}_1.fastq ${i}_2.fastq -o . -a CTGTCTCTTATACACATCT" >> ${out}   
 echo "bwa mem \${ABS_assembly} ${i}_1_val_1.fq.gz ${i}_2_val_2.fq.gz -M -t 24  > ${i}.sam" >> ${out}   
 echo "samtools view -b -F 4 -S ${i}.sam -o ${i}.bam " >> ${out}   
 echo "samtools sort -o ${i}.sorted.bam ${i}.bam " >> ${out}   
