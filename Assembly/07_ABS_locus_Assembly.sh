@@ -14,13 +14,14 @@ bedtools getfasta -fi  ${nopost} -bed ptg000081l.bed  -fo ptg000081l.fa
 bedtools getfasta -fi  ${nopost} -bed ptg000513l.bed  -fo ptg000513l.fa
 bedtools getfasta -fi  ${nopost} -bed ptg000174l.bed  -fo ptg000174l.fa
 
-#use minimap to generate the aligment files
+#use minimap to generate the aligment files, it can tell us the orientation of contigs
 ml minimap2
 minimap2 -cx asm5 ptg000016l.fa ptg000174l.fa > ptg000016l_ptg000174l.paf
 minimap2 -cx asm5 ptg000513l.fa ptg000081l.fa > ptg000513l_ptg000081l.paf
 minimap2 -cx asm5 ptg000513l.fa ptg000174l.fa > ptg000513l_ptg000174l.paf 
 
-##use blast to generate the identity files, identity the overlapping regiion for ABS locus assembly
+##use blast to generate the identity files, identity the overlapping regiion for ABS locus assembly,
+#it can tell us the location we should scaffold the contigs.
 ml BLAST+
 makeblastdb -in ptg000016l.fa -input_type fasta -dbtype nucl -out ptg000016l.fa_blastdb
 makeblastdb -in ptg000081l.fa -input_type fasta -dbtype nucl -out ptg000081l.fa_blastdb
