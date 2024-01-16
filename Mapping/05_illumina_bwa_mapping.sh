@@ -58,4 +58,3 @@ echo "igvtools count -w 100000 ${j}_W22-6_ABS.sorted.bam ${j}_W22-6_ABS.sorted_q
 echo "igvtools count -w 100000 ${j}_W22-6_ABS.sorted_q20.bam ${j}_W22-6_ABS.sorted_q20.20Kb.tdf ${genome}" >> ${out}  
 done
   done
-#for i in *sh;do sbatch $i;done
