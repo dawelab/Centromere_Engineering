@@ -1,5 +1,4 @@
 mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/shell
-for i in SRR22950215 SRR22950216 SRR22950217 SRR22950218 SRR22950219 SRR22950220 SRR22950221 SRR22950222;do
 out=/scratch/yz77862/CUTnTag_neo4Ls/shell/${i}_mapping.sh
 echo '#!/bin/bash' >> ${out}
 echo "#SBATCH --job-name=${i}_CUTnTag_mapping" >> ${out}                 
@@ -13,8 +12,9 @@ echo "#SBATCH --error=${i}_CUTnTag_mapping.err" >> ${out}
 echo " " >> ${out}   
 echo "ml BWA/0.7.17-GCCcore-11.3.0" >> ${out}   
 echo "ml BEDTools/2.29.2-GCC-8.3.0" >> ${out}   
-echo "#ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}   
-echo "#ml IGV/2.16.1-Java-11" >> ${out}   
+echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out} 
+echo "ml SRA-Toolkit" >> ${out}   
+echo "ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out}   
 echo "  " >> ${out}   
 echo "############################################" >> ${out}   
 echo "##Bulid the index for ABS assembly files####" >> ${out}   
@@ -25,12 +25,13 @@ echo "#bwa index ${ABS_assembly}" >> ${out}
 echo "  " >> ${out}   
 echo "########################################################################################" >> ${out}   
 echo "####Download data, trim the adaptors and map to ABS genome####" >> ${out}   
-echo "########################################################################################" >> ${out}   
-echo "cd /scratch/yz77862/CUTnTag_neo4Ls" >> ${out}   
-echo "#ml SRA-Toolkit" >> ${out}   
-echo "#ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out}   
+echo "########################################################################################" >> ${out}
 echo "##Download the neo4Ls CUT&Tag data using SRAtools" >> ${out}   
-echo "#fasterq-dump --split-files ${i}" >> ${out}   
+echo "#cd /scratch/yz77862/CUTnTag_neo4Ls/data/"
+echo "#for SRR in SRR22950215 SRR22950216 SRR22950217 SRR22950218 SRR22950219 SRR22950220 SRR22950221 SRR22950222;do"
+echo "#fasterq-dump --split-files ${SRR}" >> ${out}   
+echo "#done"
+echo "cd /scratch/yz77862/CUTnTag_neo4Ls" >> ${out}   
 echo "##Trim the adaptors" >> ${out}   
 echo "#trim_galore --fastqc --gzip --paired ${i}_1.fastq ${i}_2.fastq -o . -a CTGTCTCTTATACACATCT" >> ${out}   
 echo "bwa mem \${ABS_assembly} ${i}_1_val_1.fq.gz ${i}_2_val_2.fq.gz -M -t 24  > ${i}.sam" >> ${out}   
@@ -46,7 +47,5 @@ echo "echo '${i}.sorted_q20.bam' >> flagstat_result.txt  " >> ${out}
 echo "samtools flagstat ${i}.sorted.bam >> flagstat_result.txt" >> ${out}   
 echo " ">> ${out}   
 echo "bedtools bamtobed -cigar -i ${i}.sorted.bam > ${i}.sorted.bed" >> ${out}   
-echo "bedtools bamtobed -cigar -i ${i}.sorted_q20.bam > ${i}.sorted_q20.bed" >> ${out}   
-echo "igvtools count -w 100000 ${i}.sorted.bam ${i}.20Kb.tdf ragtag.scaffold.fasta" >> ${out}   
-echo "igvtools count -w 100000 ${i}.sorted_q20.bam ${i}.q20.20Kb.tdf ragtag.scaffold.fasta" >> ${out}   
+echo "bedtools bamtobed -cigar -i ${i}_q20.bam > ${i}.sorted_q20.bed" >> ${out}   
 done
