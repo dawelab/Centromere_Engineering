@@ -5,8 +5,8 @@
 #SBATCH --cpus-per-task=4 		                       
 #SBATCH --mem=400gb  			                               
 #SBATCH --time=168:00:00   		                          
-#SBATCH --output=SRR 			  
-#SBATCH --error=SRR
+#SBATCH --output=SRR.out 			  
+#SBATCH --error=SRR.err
 
 ##Download the neo4Ls CUT&Tag data using SRAtools  
 ml SRA-Toolkit
