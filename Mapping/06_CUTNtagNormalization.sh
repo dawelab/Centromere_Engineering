@@ -16,10 +16,16 @@ echo "cd /scratch/yz77862/CUTnTag_neo4Ls/output/count" >> ${out}
 echo "BAMQ20=" >> ${out}   
 echo "BAM=" >> ${out}   
 echo " " >> ${out} 
-echo "bedtools genomecov -ibam ${BAM} -bg > SRR22950215_q20_coverage.bed" >> ${out}
-echo "bedtools genomecov -ibam ${BAMQ20} -bg > SRR22950215_q20_coverage.bed" >> ${out}
-
-
-
-
+echo "ml BEDTools" >> ${out}
+echo "bedtools genomecov -ibam \${BAM}/ -bg > \${BAM}/${i}_coverage.bed" >> ${out}
+echo "bedtools genomecov -ibam \${BAMQ20}/ -bg > \${BAM}/${i}_q20_coverage.bed" >> ${out}
+echo "win_10k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_10k_win.bed" >> ${out} 
+echo "win_25k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_25k_win.bed" >> ${out} 
+echo "win_50k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_50k_win.bed" >> ${out} 
+echo "win_100k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win.bed" >> ${out} 
+echo " " >> ${out}
+echo " " >> ${out}
+echo " " >> ${out}
+echo " " >> ${out}
+echo " " >> ${out}
 done < <(cut -f1 ${list} | grep -v 'skip' | sort -u)
