@@ -4,7 +4,7 @@ mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BAM
 mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BAMQ20
 mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BED
 mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/shell
-
+list=/scratch/yz77862/CUTnTag_neo4Ls/data/list
 while read i;do
 out=/scratch/yz77862/CUTnTag_neo4Ls/shell/${i}_mapping.sh
 echo '#!/bin/bash' >> ${out}
@@ -28,8 +28,8 @@ echo "BAM=/scratch/yz77862/CUTnTag_neo4Ls/output/BAM" >> ${out}
 echo "BED=/scratch/yz77862/CUTnTag_neo4Ls/output/BED" >> ${out}   
 echo "BAMQ20=/scratch/yz77862/CUTnTag_neo4Ls/output/BAMQ20" >> ${out}   
 echo "ABS_assembly=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}
-echo "fastq1=/scratch/yz77862/CUTnTag_neo4Ls/data/${i}_val_1.fq.gz" >> ${out}
-echo "fastq2=/scratch/yz77862/CUTnTag_neo4Ls/data/${i}_val_2.fq.gz" >> ${out}
+echo "fastq1=/scratch/yz77862/CUTnTag_neo4Ls/data/${i}_R1_001_val_1.fq.gz" >> ${out}
+echo "fastq2=/scratch/yz77862/CUTnTag_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> ${out}
 echo "  " >> ${out}   
 echo "bwa mem \${ABS_assembly} \${fastq1} \${fastq2} -M -t 24 > \${SAM}/${i}.sam" >> ${out}   
 echo "samtools view -b -F 4 -S \${SAM}/${i}.sam -o \${BAM}/${i}.bam " >> ${out} 
@@ -45,3 +45,5 @@ echo " ">> ${out}
 echo "bedtools bamtobed -cigar -i \${BAM}/${i}.sorted.bam > \${BED}/${i}.sorted.bed" >> ${out}   
 echo "bedtools bamtobed -cigar -i \${BAMQ20}/${i}.sorted_q20.bam > \${BED}/${i}.sorted_q20.bed" >> ${out}   
 done < <(cut -f1 ${list} | grep -v 'skip' | sort -u)
+
+
