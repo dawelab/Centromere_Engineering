@@ -1,4 +1,10 @@
+mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output  
+mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/SAM  
+mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BAM  
+mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BAMQ20
+mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BED
 mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/shell
+
 while read i;do
 out=/scratch/yz77862/CUTnTag_neo4Ls/shell/${i}_mapping.sh
 echo '#!/bin/bash' >> ${out}
@@ -16,11 +22,6 @@ echo "ml BEDTools/2.29.2-GCC-8.3.0" >> ${out}
 echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out} 
 echo "  " >> ${out}   
 echo "cd /scratch/yz77862/CUTnTag_neo4Ls/data" >> ${out}   
-echo "mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output" >> ${out}   
-echo "mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/SAM" >> ${out}   
-echo "mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BAM" >> ${out}   
-echo "mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BAMQ20" >> ${out} 
-echo "mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/BED" >> ${out} 
 echo "  " >> ${out}   
 echo "SAM=/scratch/yz77862/CUTnTag_neo4Ls/output/SAM" >> ${out}   
 echo "BAM=/scratch/yz77862/CUTnTag_neo4Ls/output/BAM" >> ${out}   
