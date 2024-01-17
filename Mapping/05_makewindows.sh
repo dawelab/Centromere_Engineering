@@ -1,3 +1,4 @@
+ml BEDTools
 genome_fai=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa.fai
 #Only extract the chr size
 head ${genome_fai} > genome_size
