@@ -26,12 +26,12 @@ echo "win_50k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_50k
 echo "win_100k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win.bed" >> ${out} 
 echo "genomecov=/scratch/yz77862/CUTnTag_neo4Ls/output/genomecov" >> ${out} 
 echo "cd /scratch/yz77862/CUTnTag_neo4Ls/output/ratio" >> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_10k} -b \${genomecov}/${i}_genomecov.bed > ${i}_win_10k_genomecov.bed" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_10k} -b \${genomecov}/${i}_q20_genomecov.bed > ${i}_win_10k_q20_genomecov.bed" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_25k} -b \${genomecov}/${i}_genomecov.bed > ${i}_win_25k_genomecov.bed" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_25k} -b \${genomecov}/${i}_q20_genomecov.bed > ${i}_win_q20_25k_genomecov.bed" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_50k} -b \${genomecov}/${i}_genomecov.bed > ${i}_win_50k_genomecov.bed" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_50k} -b \${genomecov}/${i}_q20_genomecov.bed > ${i}_win_50k_q20__genomecov.bed" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_genomecov.bed > ${i}_win_100k_genomecov.bed" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_q20_genomecov.bed > ${i}_win_100k_q20__genomecov.bed" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_10k} -b \${genomecov}/${i}_genomecov.bed | bedtools groupby -c 7 -o sum >> ${i}_win_10k_genomecov.bed" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_10k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_10k_q20_genomecov.bed" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_25k} -b \${genomecov}/${i}_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_25k_genomecov.bed" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_25k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_q20_25k_genomecov.bed" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_50k} -b \${genomecov}/${i}_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_50k_genomecov.bed" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_50k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_50k_q20__genomecov.bed" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_100k_genomecov.bed" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_100k_q20__genomecov.bed" >> ${out}
 done < <(cut -f1 ${list} | grep -v 'skip' | sort -u)
