@@ -35,14 +35,14 @@ echo "cd /scratch/yz77862/CUTnTag_neo4Ls/output/ratio" >> ${out}
 #echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_100k_genomecov.bed1" >> ${out}
 #echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 7 -o sum > ${i}_win_100k_q20_genomecov.bed1" >> ${out}
 echo " " >> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_10k} -b ${i}_win_10k_genomecov.bed1 -v | awk '{print $1,$2,$3,0}' OFS="\t"> ${i}_win_10k_genomecov.bed2" >> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_10k} -b ${i}_win_10k_q20_genomecov.bed1 -v | awk '{print $1,$2,$3,0}' OFS="\t"> ${i}_win_10k_q20_genomecov.bed2" >> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_25k} -b ${i}_win_25k_genomecov.bed1 -v | awk '{print $1,$2,$3,0}' OFS="\t" > ${i}_win_25k_genomecov.bed2" >> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_25k} -b ${i}_win_q20_25k_genomecov.bed1 -v | awk '{print $1,$2,$3,0}' OFS="\t" > ${i}_win_q20_25k_genomecov.bed2" >> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_50k} -b ${i}_win_50k_genomecov.bed1 -v | awk '{print $1,$2,$3,0}' OFS="\t" > ${i}_win_50k_genomecov.bed2 ">> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_50k} -b ${i}_win_50k_q20_genomecov.bed1 -v | awk '{print $1,$2,$3,0}' OFS="\t" > ${i}_win_50k_q20_genomecov.bed2" >> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_100k} -b ${i}_win_100k_genomecov.bed1 -v | awk '{print $1,$2,$3,0}' OFS="\t" > ${i}_win_100k_genomecov.bed2" >> ${out} 
-echo "bedtools intersect -wa -wb -a \${win_100k} -b ${i}_win_100k_q20_genomecov.bed1 -v | awk '{print $1,$2,$3,0}' OFS="\t" > ${i}_win_100k_q20_genomecov.bed2" >> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_10k} -b ${i}_win_10k_genomecov.bed1 -v | awk '{print \$1,\$2,\$3,0}' OFS="\t"> ${i}_win_10k_genomecov.bed2" >> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_10k} -b ${i}_win_10k_q20_genomecov.bed1 -v | awk '{print \$1,\$2,\$3,0}' OFS="\t"> ${i}_win_10k_q20_genomecov.bed2" >> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_25k} -b ${i}_win_25k_genomecov.bed1 -v | awk '{print \$1,\$2,\$3,0}' OFS="\t" > ${i}_win_25k_genomecov.bed2" >> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_25k} -b ${i}_win_q20_25k_genomecov.bed1 -v | awk '{print \$1,\$2,\$3,0}' OFS="\t" > ${i}_win_q20_25k_genomecov.bed2" >> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_50k} -b ${i}_win_50k_genomecov.bed1 -v | awk '{print \$1,\$2,\$3,0}' OFS="\t" > ${i}_win_50k_genomecov.bed2 ">> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_50k} -b ${i}_win_50k_q20_genomecov.bed1 -v | awk '{print \$1,\$2,\$3,0}' OFS="\t" > ${i}_win_50k_q20_genomecov.bed2" >> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_100k} -b ${i}_win_100k_genomecov.bed1 -v | awk '{print \$1,\$2,\$3,0}' OFS="\t" > ${i}_win_100k_genomecov.bed2" >> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_100k} -b ${i}_win_100k_q20_genomecov.bed1 -v | awk '{print \$1,\$2,\$3,0}' OFS="\t" > ${i}_win_100k_q20_genomecov.bed2" >> ${out} 
 echo " " >> ${out} 
 echo "cat ${i}_win_10k_genomecov.bed1 ${i}_win_10k_genomecov.bed2 | sort -b -k1,1 -k2,2n -k3,3n  > ${i}_win_10k_genomecov.bed" >> ${out} 
 echo "cat ${i}_win_10k_q20_genomecov.bed1 ${i}_win_10k_q20_genomecov.bed2 | sort -b -k1,1 -k2,2n -k3,3n > ${i}_win_10k_q20_genomecov.bed" >> ${out} 
