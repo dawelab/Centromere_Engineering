@@ -63,8 +63,8 @@ paste yz254-4-CenH3_win_10k_genomecov.bed2 yz254-4-IgG_win_10k_genomecov.bed2 | 
 
 #For the 25kb  window
 paste SRR22950216_win_25k_genomecov.bed2 SRR22950215_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/580569878)/(($8+1)/722600905)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_25k_enrich.bed
-paste SRR22950218_win_25k_genomecov.bed2 SRR22950217_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/941773335)/(($8+1)/687358213)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_25k_enrich.bed
-paste SRR22950220_win_25k_genomecov.bed2 SRR22950219_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/974541314)/(($8+1)/704962295)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_25k_enrich.bed
+paste SRR22950218_win_25k_genomecov.bed2 SRR22950217_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/941773335)/(($8+1)/686901336)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_25k_enrich.bed
+paste SRR22950220_win_25k_genomecov.bed2 SRR22950219_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/973883964)/(($8+1)/704395545)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_25k_enrich.bed
 paste SRR22950222_win_25k_genomecov.bed2 SRR22950221_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/1456479873)/(($8+1)/358161953)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_25k_enrich.bed
 paste yz252-2-CenH3_win_25k_genomecov.bed2 yz252-7-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/101574552)/(($8+1)/147019229)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_25k_enrich.bed
 paste yz252-7-CenH3_win_25k_genomecov.bed2 yz252-7-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/50900023)/(($8+1)/147019229)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_25k_enrich.bed
