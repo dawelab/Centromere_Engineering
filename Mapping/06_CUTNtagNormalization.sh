@@ -2,14 +2,14 @@ mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/genomecov
 mkdir -p /scratch/yz77862/CUTnTag_neo4Ls/output/ratio
 list=/scratch/yz77862/CUTnTag_neo4Ls/data/list
 while read i;do
-out=c${i}_normalization.sh
+out=${i}_normalization.sh
 echo '#!/bin/bash' >> ${out}
 echo "#SBATCH --job-name=${i}_normalization" >> ${out}                 
 echo "#SBATCH --partition=batch" >> ${out}   		                            
 echo "#SBATCH --ntasks=1" >> ${out}   			                            
 echo "#SBATCH --cpus-per-task=4" >> ${out}   		                       
 echo "#SBATCH --mem=400gb" >> ${out}   			                               
-echo "#SBATCH --time=168:00:00" >> ${out}     		                          
+echo "#SBATCH --time=20:00:00" >> ${out}     		                          
 echo "#SBATCH --output=${i}_normalization.out" >> ${out}   			  
 echo "#SBATCH --error=${i}_normalization.err" >> ${out}   
 echo " " >> ${out}   
