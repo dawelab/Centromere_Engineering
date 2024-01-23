@@ -114,59 +114,59 @@ paste yz254-4-CenH3_win_10k_genomecov.bed2 yz254-4-IgG_win_10k_genomecov.bed2 | 
 out=/scratch/yz77862/CUTnTag_neo4Ls/output/enrich
 cd /scratch/yz77862/CUTnTag_neo4Ls/output/ratio/BEDQ20
 #For the 10kb  window
-paste SRR22950216_win_10k_genomecov.bed2 SRR22950215_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/581051874)/(($8+1)/723254263)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_10k_enrich.bed
-paste SRR22950218_win_10k_genomecov.bed2 SRR22950217_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/942272045)/(($8+1)/687358213)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_10k_enrich.bed
-paste SRR22950220_win_10k_genomecov.bed2 SRR22950219_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/974541314)/(($8+1)/704962295)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_10k_enrich.bed
-paste SRR22950222_win_10k_genomecov.bed2 SRR22950221_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/1456479873)/(($8+1)/358161953)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_10k_enrich.bed
-paste yz252-2-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/101574552)/(($8+1)/147019229)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz252-7-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/50900023)/(($8+1)/147019229)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz252-8-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/49869648)/(($8+1)/147019229)}' OFS="\t" > ${out}/YZ252-8_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-2-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/35222253)/(($8+1)/409417750)}' OFS="\t" > ${out}/YZ253-2_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-3-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/103653263)/(($8+1)/409417750)}' OFS="\t" > ${out}/YZ253-3_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-4-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/78615288)/(($8+1)/409417750)}' OFS="\t" > ${out}/YZ253-4_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-5-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/54540551)/(($8+1)/409417750)}' OFS="\t" > ${out}/YZ253-5_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz254-4-CenH3_win_10k_genomecov.bed2 yz254-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"ABS_het",".",(($4+1)/45070578)/(($8+1)/131611395)}' OFS="\t" > ${out}/YZ254-4_YZ254-4_Neo4L_1_win_10k_enrich.bed
+paste SRR22950216_win_10k_genomecov.bed2 SRR22950215_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/161522079)/(($8+1)/248539055)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_10k_enrich.bed
+paste SRR22950218_win_10k_genomecov.bed2 SRR22950217_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/289344971)/(($8+1)/215026602)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_10k_enrich.bed
+paste SRR22950220_win_10k_genomecov.bed2 SRR22950219_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/286343636)/(($8+1)/236490134)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_10k_enrich.bed
+paste SRR22950222_win_10k_genomecov.bed2 SRR22950221_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/441620283)/(($8+1)/130831272)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_10k_enrich.bed
+paste yz252-2-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/41098930)/(($8+1)/52031080)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz252-7-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/19849084)/(($8+1)/52031080)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz252-8-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/17842441)/(($8+1)/52031080)}' OFS="\t" > ${out}/YZ252-8_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-2-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/13641615)/(($8+1)/110074241)}' OFS="\t" > ${out}/YZ253-2_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-3-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/28882378)/(($8+1)/110074241)}' OFS="\t" > ${out}/YZ253-3_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-4-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/24805869)/(($8+1)/110074241)}' OFS="\t" > ${out}/YZ253-4_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-5-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/19314465)/(($8+1)/110074241)}' OFS="\t" > ${out}/YZ253-5_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz254-4-CenH3_win_10k_genomecov.bed2 yz254-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"ABS_het",".",(($4+1)/19687456)/(($8+1)/50904936)}' OFS="\t" > ${out}/YZ254-4_YZ254-4_Neo4L_1_win_10k_enrich.bed
 
 
 #For the 25kb  window
-paste SRR22950216_win_25k_genomecov.bed2 SRR22950215_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/580569878)/(($8+1)/722600905)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_25k_enrich.bed
-paste SRR22950218_win_25k_genomecov.bed2 SRR22950217_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/941773335)/(($8+1)/686901336)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_25k_enrich.bed
-paste SRR22950220_win_25k_genomecov.bed2 SRR22950219_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/973883964)/(($8+1)/704395545)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_25k_enrich.bed
-paste SRR22950222_win_25k_genomecov.bed2 SRR22950221_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/1456187847)/(($8+1)/357825750)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_25k_enrich.bed
-paste yz252-2-CenH3_win_25k_genomecov.bed2 yz252-7-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/101439889)/(($8+1)/146773042)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_25k_enrich.bed
-paste yz252-7-CenH3_win_25k_genomecov.bed2 yz252-7-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/50787288)/(($8+1)/146773042)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_25k_enrich.bed
-paste yz252-8-CenH3_win_25k_genomecov.bed2 yz252-7-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/49769149)/(($8+1)/146773042)}' OFS="\t" > ${out}/YZ252-8_YZ252-7_Neo4L_1_gen2_win_25k_enrich.bed
-paste yz253-2-CenH3_win_25k_genomecov.bed2 yz253-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/35162524)/(($8+1)/408879613)}' OFS="\t" > ${out}/YZ253-2_YZ253-4_Neo4L_1_gen2_win_25k_enrich.bed
-paste yz253-3-CenH3_win_25k_genomecov.bed2 yz253-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/103471981)/(($8+1)/408879613)}' OFS="\t" > ${out}/YZ253-3_YZ253-4_Neo4L_1_gen2_win_25k_enrich.bed
-paste yz253-4-CenH3_win_25k_genomecov.bed2 yz253-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/78471222)/(($8+1)/408879613)}' OFS="\t" > ${out}/YZ253-4_YZ253-4_Neo4L_1_gen2_win_25k_enrich.bed
-paste yz253-5-CenH3_win_25k_genomecov.bed2 yz253-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/54421166)/(($8+1)/408879613)}' OFS="\t" > ${out}/YZ253-5_YZ253-4_Neo4L_1_gen2_win_25k_enrich.bed
-paste yz254-4-CenH3_win_25k_genomecov.bed2 yz254-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"ABS_het",".",(($4+1)/44953748)/(($8+1)/131337664)}' OFS="\t" > ${out}/YZ254-4_YZ254-4_Neo4L_1_win_25k_enrich.bed
+paste SRR22950216_win_25k_genomecov.bed2 SRR22950215_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/161257851)/(($8+1)/248140385)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_25k_enrich.bed
+paste SRR22950218_win_25k_genomecov.bed2 SRR22950217_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/289044139)/(($8+1)/214753310)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_25k_enrich.bed
+paste SRR22950220_win_25k_genomecov.bed2 SRR22950219_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/285964484)/(($8+1)/236154363)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_25k_enrich.bed
+paste SRR22950222_win_25k_genomecov.bed2 SRR22950221_win_25k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/441459665)/(($8+1)/130625486)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_25k_enrich.bed
+paste yz252-2-CenH3_win_25k_genomecov.bed2 yz252-7-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/41023761)/(($8+1)/51892515)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_25k_enrich.bed
+paste yz252-7-CenH3_win_25k_genomecov.bed2 yz252-7-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/19786526)/(($8+1)/51892515)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_25k_enrich.bed
+paste yz252-8-CenH3_win_25k_genomecov.bed2 yz252-7-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/17786556)/(($8+1)/51892515)}' OFS="\t" > ${out}/YZ252-8_YZ252-7_Neo4L_1_gen2_win_25k_enrich.bed
+paste yz253-2-CenH3_win_25k_genomecov.bed2 yz253-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/13609733)/(($8+1)/109794073)}' OFS="\t" > ${out}/YZ253-2_YZ253-4_Neo4L_1_gen2_win_25k_enrich.bed
+paste yz253-3-CenH3_win_25k_genomecov.bed2 yz253-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/28794074)/(($8+1)/109794073)}' OFS="\t" > ${out}/YZ253-3_YZ253-4_Neo4L_1_gen2_win_25k_enrich.bed
+paste yz253-4-CenH3_win_25k_genomecov.bed2 yz253-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/24729588)/(($8+1)/109794073)}' OFS="\t" > ${out}/YZ253-4_YZ253-4_Neo4L_1_gen2_win_25k_enrich.bed
+paste yz253-5-CenH3_win_25k_genomecov.bed2 yz253-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/19247798)/(($8+1)/109794073)}' OFS="\t" > ${out}/YZ253-5_YZ253-4_Neo4L_1_gen2_win_25k_enrich.bed
+paste yz254-4-CenH3_win_25k_genomecov.bed2 yz254-4-IgG_win_25k_genomecov.bed2 | awk '{print $1,$2,$3,"ABS_het",".",(($4+1)/19617764)/(($8+1)/50746360)}' OFS="\t" > ${out}/YZ254-4_YZ254-4_Neo4L_1_win_25k_enrich.bed
 
 #For the 50kb  window
-paste SRR22950216_win_10k_genomecov.bed2 SRR22950215_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/580407535)/(($8+1)/722386175)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_10k_enrich.bed
-paste SRR22950218_win_10k_genomecov.bed2 SRR22950217_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/941607683)/(($8+1)/686749483)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_10k_enrich.bed
-paste SRR22950220_win_10k_genomecov.bed2 SRR22950219_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/973664226)/(($8+1)/704211225)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_10k_enrich.bed
-paste SRR22950222_win_10k_genomecov.bed2 SRR22950221_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/1456089482)/(($8+1)/357714579)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_10k_enrich.bed
-paste yz252-2-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/101394196)/(($8+1)/146690074)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz252-7-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/50750479)/(($8+1)/146690074)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz252-8-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/49736612)/(($8+1)/146690074)}' OFS="\t" > ${out}/YZ252-8_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-2-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/35142742)/(($8+1)/408701078)}' OFS="\t" > ${out}/YZ253-2_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-3-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/103408818)/(($8+1)/408701078)}' OFS="\t" > ${out}/YZ253-3_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-4-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/78422431)/(($8+1)/408701078)}' OFS="\t" > ${out}/YZ253-4_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-5-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/54382655)/(($8+1)/408701078)}' OFS="\t" > ${out}/YZ253-5_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz254-4-CenH3_win_10k_genomecov.bed2 yz254-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"ABS_het",".",(($4+1)/44915840)/(($8+1)/131244546)}' OFS="\t" > ${out}/YZ254-4_YZ254-4_Neo4L_1_win_10k_enrich.bed
+paste SRR22950216_win_10k_genomecov.bed2 SRR22950215_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/161168047)/(($8+1)/248008184)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_10k_enrich.bed
+paste SRR22950218_win_10k_genomecov.bed2 SRR22950217_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/288943606)/(($8+1)/214661951)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_10k_enrich.bed
+paste SRR22950220_win_10k_genomecov.bed2 SRR22950219_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/285835597)/(($8+1)/236043839)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_10k_enrich.bed
+paste SRR22950222_win_10k_genomecov.bed2 SRR22950221_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/441407039)/(($8+1)/130557020)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_10k_enrich.bed
+paste yz252-2-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/40998639)/(($8+1)/51846716)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz252-7-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/19765830)/(($8+1)/51846716)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz252-8-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/17768921)/(($8+1)/51846716)}' OFS="\t" > ${out}/YZ252-8_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-2-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/13599265)/(($8+1)/109701845)}' OFS="\t" > ${out}/YZ253-2_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-3-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/28763929)/(($8+1)/109701845)}' OFS="\t" > ${out}/YZ253-3_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-4-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/24704358)/(($8+1)/109701845)}' OFS="\t" > ${out}/YZ253-4_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-5-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/19226592)/(($8+1)/109701845)}' OFS="\t" > ${out}/YZ253-5_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz254-4-CenH3_win_10k_genomecov.bed2 yz254-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"ABS_het",".",(($4+1)/19595672)/(($8+1)/50689434)}' OFS="\t" > ${out}/YZ254-4_YZ254-4_Neo4L_1_win_10k_enrich.bed
 
 #For the 100kb  window
-paste SRR22950216_win_10k_genomecov.bed2 SRR22950215_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/580327399)/(($8+1)/722278194)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_10k_enrich.bed
-paste SRR22950218_win_10k_genomecov.bed2 SRR22950217_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/941525423)/(($8+1)/686673071)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_10k_enrich.bed
-paste SRR22950220_win_10k_genomecov.bed2 SRR22950219_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/973555914)/(($8+1)/704118273)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_10k_enrich.bed
-paste SRR22950222_win_10k_genomecov.bed2 SRR22950221_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/1456040354)/(($8+1)/357658829)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_10k_enrich.bed
-paste yz252-2-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/101371293)/(($8+1)/146648296)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz252-7-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/50732484)/(($8+1)/146648296)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz252-8-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/49719798)/(($8+1)/146648296)}' OFS="\t" > ${out}/YZ252-8_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-2-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/35131946)/(($8+1)/408612321)}' OFS="\t" > ${out}/YZ253-2_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-3-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/103378203)/(($8+1)/408612321)}' OFS="\t" > ${out}/YZ253-3_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-4-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/78398307)/(($8+1)/408612321)}' OFS="\t" > ${out}/YZ253-4_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz253-5-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/54362414)/(($8+1)/408612321)}' OFS="\t" > ${out}/YZ253-5_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
-paste yz254-4-CenH3_win_10k_genomecov.bed2 yz254-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"ABS_het",".",(($4+1)/44895507)/(($8+1)/131197983)}' OFS="\t" > ${out}/YZ254-4_YZ254-4_Neo4L_1_win_10k_enrich.bed
+paste SRR22950216_win_10k_genomecov.bed2 SRR22950215_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-4",".",(($4+1)/161123027)/(($8+1)/247942052)}' OFS="\t" > ${out}/SRR22950216_15_Neo4L_4_win_10k_enrich.bed
+paste SRR22950218_win_10k_genomecov.bed2 SRR22950217_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-3",".",(($4+1)/288892934)/(($8+1)/214615397)}' OFS="\t" > ${out}/SRR22950218_17_Neo4L_3_win_10k_enrich.bed
+paste SRR22950220_win_10k_genomecov.bed2 SRR22950219_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-2",".",(($4+1)/285772484)/(($8+1)/235988583)}' OFS="\t" > ${out}/SRR22950220_19_Neo4L_2_win_10k_enrich.bed
+paste SRR22950222_win_10k_genomecov.bed2 SRR22950221_win_10k_genomecov.bed2  | awk '{print $1,$2,$3,"Neo4L-1",".",(($4+1)/441380266)/(($8+1)/130522698)}' OFS="\t" > ${out}/SRR22950222_21_Neo4L_1_win_10k_enrich.bed
+paste yz252-2-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/40986147)/(($8+1)/51822778)}' OFS="\t" > ${out}/YZ252-2_YZ25-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz252-7-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/19755992)/(($8+1)/51822778)}' OFS="\t" > ${out}/YZ252-7_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz252-8-CenH3_win_10k_genomecov.bed2 yz252-7-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen2",".",(($4+1)/17759411)/(($8+1)/51822778)}' OFS="\t" > ${out}/YZ252-8_YZ252-7_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-2-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/13593107)/(($8+1)/109655864)}' OFS="\t" > ${out}/YZ253-2_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-3-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/28749367)/(($8+1)/109655864)}' OFS="\t" > ${out}/YZ253-3_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-4-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/24691886)/(($8+1)/109655864)}' OFS="\t" > ${out}/YZ253-4_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz253-5-CenH3_win_10k_genomecov.bed2 yz253-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"Neo4L-1_gen5",".",(($4+1)/19215564)/(($8+1)/109655864)}' OFS="\t" > ${out}/YZ253-5_YZ253-4_Neo4L_1_gen2_win_10k_enrich.bed
+paste yz254-4-CenH3_win_10k_genomecov.bed2 yz254-4-IgG_win_10k_genomecov.bed2 | awk '{print $1,$2,$3,"ABS_het",".",(($4+1)/19583715)/(($8+1)/50662351)}' OFS="\t" > ${out}/YZ254-4_YZ254-4_Neo4L_1_win_10k_enrich.bed
 
