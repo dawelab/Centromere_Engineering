@@ -57,3 +57,6 @@ echo "bedtools bamtobed -cigar -i W22-6_ABS.sorted_q20.bam > W22-6_ABS.sorted_q2
 echo "igvtools count -w 100000 W22-6_ABS.sorted.bam W22-6_ABS.sorted_q20.20Kb.tdf ${genome}" >> ${out}  
 echo "igvtools count -w 100000 W22-6_ABS.sorted_q20.bam W22-6_ABS.sorted_q20.20Kb.tdf ${genome}" >> ${out}  
 done << ()
+
+
+#####Try 2308
