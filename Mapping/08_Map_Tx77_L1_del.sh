@@ -30,7 +30,7 @@ echo "BAMQ20=/scratch/yz77862/L1_deleltion/OUTPUT/BAMQ20" >> ${out}
 
 echo "Tx77_assembly=/scratch/yz77862/MaizeGenome/Tx777_out_HALF_chr_ragtag.scaffold.fasta" >> ${out}
 echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001.trimmed.fastq.gz" >> ${out}
-echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data${i}_R2_001.trimmed.fastq.gz" >> ${out}
+echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001.trimmed.fastq.gz" >> ${out}
 echo "  " >> ${out}   
 echo "bwa mem \${Tx77_assembly} \${fastq1} \${fastq2} -M -t 24 > \${SAM}/${i}.sam" >> ${out}   
 echo "samtools view -b -F 4 -S \${SAM}/${i}.sam -o \${BAM}/${i}.bam " >> ${out} 
