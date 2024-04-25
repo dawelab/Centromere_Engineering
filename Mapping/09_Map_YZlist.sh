@@ -16,14 +16,14 @@ echo "ml BWA/0.7.17-GCCcore-11.3.0" >> ${out}
 echo "ml BEDTools/2.29.2-GCC-8.3.0" >> ${out}  
 echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}  
 echo "ml IGV/2.16.1-Java-11" >> ${out} 
-echo "ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out} 
+echo "#ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out} 
 echo " #The data input file folder " >> ${out}
-echo "cd /scratch/yz77862/illumina_neo4Ls/data" >> ${out}  
+echo "#cd /scratch/yz77862/illumina_neo4Ls/data" >> ${out}  
 echo " #Trim adaptors " >> ${out}
-echo "trim_galore --fastqc --gzip --paired ${i}_R1_001.fastq.gz ${i}_R2_001.fastq.gz -o . -a AGATCGGAAGAGC" >> ${out}  
+echo "#trim_galore --fastqc --gzip --paired ${i}_R1_001.fastq.gz ${i}_R2_001.fastq.gz -o . -a AGATCGGAAGAGC" >> ${out}  
 echo " #The trimmed fastq files " >> ${out}
-echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001.fastq.gz.trimmed.fastq.gz" >> ${out} 
-echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001.fastq.gz.trimmed.fastq.gz" >> ${out} 
+echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001_val_1.fq.gz" >> ${out} 
+echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> ${out} 
 echo "#The genome file  " >> ${out}
 echo "genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}
 echo "#The windows files  " >> ${out}
