@@ -1,7 +1,7 @@
 mkdir -p /scratch/yz77862/illumina_neo4Ls/shell
 list=/scratch/yz77862/illumina_neo4Ls/data/YZ_list
 while read i; do
-out=/scratch/yz77862/illumina_neo4Ls/shell/${i}__map.sh
+out=/scratch/yz77862/illumina_neo4Ls/shell/${i}_map_ABSgenome.sh
 echo '#!/bin/bash' >> ${out}
 echo "#SBATCH --job-name=map_${i}" >> ${out}                  
 echo "#SBATCH --partition=batch">> ${out}  		                            
