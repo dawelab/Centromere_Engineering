@@ -20,7 +20,7 @@ echo "ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out}
 echo " #The data input file folder " >> ${out}
 echo "cd /scratch/yz77862/illumina_neo4Ls/data" >> ${out}  
 echo " #Trim adaptors " >> ${out}
-echo "trim_galore --fastqc --gzip --paired ${GENOME}_R1_001.fastq.gz ${GENOME}_R2_001.fastq.gz -o . -a CTGTCTCTTATACACATCT " >> ${out}  
+echo "trim_galore --fastqc --gzip --paired ${i}_R1_001.fastq.gz ${i}_R2_001.fastq.gz -o . -a AGATCGGAAGAGC" >> ${out}  
 echo " #The trimmed fastq files " >> ${out}
 echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001.fastq.gz.trimmed.fastq.gz" >> ${out} 
 echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001.fastq.gz.trimmed.fastq.gz" >> ${out} 
