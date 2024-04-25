@@ -49,7 +49,7 @@ echo "samtools index \${BAMQ20}/${i}_ABS.sorted_q20.bam" >> ${out}
 echo "touch flagstat_result.txt" >> ${out}  
 echo "echo '\${BAM}/${i}_ABS.sorted.bam' >> flagstat_result.txt" >> ${out}  
 echo "samtools flagstat \${BAM}/${i}_ABS.sorted.bam >> flagstat_result.txt" >> ${out}  
-echo "echo '${i}_ABS.sorted_q20.bam' >> flagstat_result.txt" >> ${out}  
+echo "echo '\${BAMQ20}/${i}_ABS.sorted_q20.bam' >> flagstat_result.txt" >> ${out}  
 echo "samtools flagstat \${BAMQ20}/${i}_ABS.sorted_q20.bam >> flagstat_result.txt" >> ${out}  
 echo "bedtools bamtobed -cigar -i \${BAM}/${i}_ABS.sorted.bam > \${BED}/${i}_ABS.sorted.bed" >> ${out}  
 echo "bedtools bamtobed -cigar -i \${BAMQ20}/${i}_ABS.sorted_q20.bam > \${BED}/${i}_ABS.sorted_q20.bed" >> ${out}  
