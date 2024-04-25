@@ -15,48 +15,39 @@ echo " " >> ${out}
 echo "ml BWA/0.7.17-GCCcore-11.3.0" >> ${out}  
 echo "ml BEDTools/2.29.2-GCC-8.3.0" >> ${out}  
 echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}  
-echo "ml IGV/2.16.1-Java-11" >> ${out}  
-echo "cd /scratch/yz77862/illumina_neo4Ls/${i}_" >> ${out}  
-
+echo "ml IGV/2.16.1-Java-11" >> ${out} 
+echo "ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out} 
+echo "  " >> ${out}
+echo "/scratch/yz77862/illumina_neo4Ls/data" >> ${out}  
+echo "  " >> ${out}
+echo "trim_galore --fastqc --gzip --paired ${GENOME}_R1_001.fastq.gz ${GENOME}_R2_001.fastq.gz -o . -a CTGTCTCTTATACACATCT " >> ${out}  
+echo "  " >> ${out}
 echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001.fastq.gz.trimmed.fastq.gz" >> ${out} 
 echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001.fastq.gz.trimmed.fastq.gz" >> ${out} 
 echo "genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}
+echo "win_10k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}
 
-echo "bwa mem ${genome} ${fastq1} ${fastq2} -M -t 24  > ${i}_ABS.sam" >> ${out}  
-echo " " >> ${out}  
-echo "samtools view -b -F 4 -S ${i}_ABS.sam -o ${i}_ABS.bam" >> ${out}  
-echo "samtools sort -o ${i}_ABS.sorted.bam  ${i}_ABS.bam" >> ${out}    
-echo "samtools view -q 20 -o ${i}_ABS.sorted_q20.bam _${i}_ABS.sorted.bam" >> ${out}  
-echo "samtools index ${i}_ABS.sorted.bam" >> ${out}  
-echo "samtools index ${i}_ABS.sorted_q20.bam" >> ${out}  
+echo "SAM=/scratch/yz77862/illumina_neo4Ls/output/SAM" >> ${out}
+echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/BAM" >> ${out}
+echo "BAMQ20=/scratch/yz77862/illumina_neo4Ls/output/BAMQ20 " >> ${out}
+echo "BED=/scratch/yz77862/illumina_neo4Ls/output/BED" >> ${out}
+echo "BEDQ20=/scratch/yz77862/illumina_neo4Ls/output/BEDQ20" >> ${out}
+echo "TDF=/scratch/yz77862/illumina_neo4Ls/output/TDF" >> ${out}
+echo "  " >> ${out}
+echo "bwa mem ${genome} ${fastq1} ${fastq2} -M -t 24  > ${SAM}/${i}_ABS.sam" >> ${out}  
+echo "samtools view -b -F 4 -S ${SAM}/${i}_ABS.sam -o ${BAM}/${i}_ABS.bam" >> ${out}  
+echo "samtools sort -o ${BAM}/${i}_ABS.sorted.bam ${BAM}/${i}_ABS.bam" >> ${out}    
+echo "samtools view -q 20 -o ${BAMQ20}/${i}_ABS.sorted_q20.bam ${BAM}/${i}_ABS.sorted.bam" >> ${out}  
+echo "samtools index ${BAM}/${i}_ABS.bam" >> ${out}  
+echo "samtools index ${BAMQ20}/${i}_ABS.sorted_q20.bam" >> ${out}  
 echo "touch flagstat_result.txt" >> ${out}  
 echo "echo '${i}_ABS.sorted.bam' >> flagstat_result.txt" >> ${out}  
-echo "samtools flagstat ${i}_ABS.sorted.bam >> flagstat_result.txt" >> ${out}  
-echo "echo '${i}_ABS.sorted_q20.bam' >> flagstat_result.txt" >> ${out}  
+echo "samtools flagstat ${BAM}/${i}_ABS.sorted.bam >> flagstat_result.txt" >> ${out}  
+echo "echo '${BAMQ20}/${i}_ABS.sorted_q20.bam' >> flagstat_result.txt" >> ${out}  
 echo "samtools flagstat ${i}_ABS.sorted_q20.bam >> flagstat_result.txt" >> ${out}  
 echo "bedtools bamtobed -cigar -i ${i}_ABS.sorted.bam > _${i}_ABS.sorted.bed" >> ${out}  
 echo "bedtools bamtobed -cigar -i ${i}_ABS.sorted_q20.bam > _${i}_ABS.sorted_q20.bed" >> ${out}  
-echo "igvtools count -w 100000 ${i}_ABS.sorted.bam ${i}_ABS.sorted_q20.20Kb.tdf ${genome}" >> ${out}  
-echo "igvtools count -w 100000 ${i}_ABS.sorted_q20.bam ${i}_ABS.sorted_q20.20Kb.tdf ${genome}" >> ${out}  
-echo " " >> ${out}  
-echo "W22=/scratch/yz77862/illumina_neo4Ls/W22-6.fastq.gz.trimmed.fastq.gz" >> ${out}  
-echo "bwa mem ${genome} \${W22} -M -t 24  > W22-6_ABS.sam" >> ${out}  
-echo " " >> ${out}  
-echo "samtools view -b -F 4 -S _W22-6_ABS.sam -o W22-6_ABS.bam" >> ${out}   
-echo "samtools sort -o W22-6_ABS.sorted.bam  W22-6_ABS.bam" >> ${out}    
-echo "samtools view -q 20 -o W22-6_ABS.sorted_q20.bam W22-6_ABS.sorted.bam" >> ${out}  
-echo "samtools index W22-6_ABS.sorted.bam" >> ${out}  
-echo "samtools index W22-6_ABS.sorted_q20.bam" >> ${out}  
-echo "touch flagstat_result.txt" >> ${out}  
-echo "echo 'W22-6_ABS.sorted.bam' >> flagstat_result.txt" >> ${out}  
-echo "samtools flagstat W22-6_ABS.sorted.bam >> flagstat_result.txt" >> ${out}  
-echo "echo 'W22-6_ABS.sorted_q20.bam' >> flagstat_result.txt" >> ${out}  
-echo "samtools flagstat W22-6_ABS.sorted_q20.bam >> flagstat_result.txt" >> ${out}  
-echo "bedtools bamtobed -cigar -i W22-6_ABS.sorted.bam > W22-6_ABS.sorted.bed" >> ${out}  
-echo "bedtools bamtobed -cigar -i W22-6_ABS.sorted_q20.bam > W22-6_ABS.sorted_q20.bed" >> ${out}  
-echo "igvtools count -w 100000 W22-6_ABS.sorted.bam W22-6_ABS.sorted_q20.20Kb.tdf ${genome}" >> ${out}  
-echo "igvtools count -w 100000 W22-6_ABS.sorted_q20.bam W22-6_ABS.sorted_q20.20Kb.tdf ${genome}" >> ${out}  
-done << ()
+echo "igvtools count -w 10000 ${BAM}/${i}_ABS.sorted.bam ${TDF}/${i}_ABS.sorted_q20.10Kb.tdf ${genome}" >> ${out}  
+echo "igvtools count -w 10000 ${BAMQ20}/${i}_ABS.sorted_q20.bam ${TDF}/${i}_ABS.sorted_q20.10Kb.tdf ${genome}" >> ${out} 
 
-
-#####Try 2308
+echo " " >> ${out}  
