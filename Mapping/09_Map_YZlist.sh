@@ -52,12 +52,12 @@ echo "samtools flagstat \${BAM}/${i}_ABS.sorted.bam >> flagstat_result.txt" >> $
 echo "echo '${i}_ABS.sorted_q20.bam' >> flagstat_result.txt" >> ${out}  
 echo "samtools flagstat \${BAMQ20}/${i}_ABS.sorted_q20.bam >> flagstat_result.txt" >> ${out}  
 echo "bedtools bamtobed -cigar -i \${BAM}/${i}_ABS.sorted.bam > \${BED}/${i}_ABS.sorted.bed" >> ${out}  
-echo "bedtools bamtobed -cigar -i ${i}_ABS.sorted_q20.bam > _${i}_ABS.sorted_q20.bed" >> ${out}  
+echo "bedtools bamtobed -cigar -i \${BAMQ20}/${i}_ABS.sorted_q20.bam > \${BED}/${i}_ABS.sorted_q20.bed" >> ${out}  
 echo "igvtools count -w 10000 \${BAM}/${i}_ABS.sorted.bam \${TDF}/${i}_ABS.sorted_q20.10Kb.tdf ${genome}" >> ${out}  
 echo "igvtools count -w 10000 \${BAMQ20}/${i}_ABS.sorted_q20.bam \${TDF}/${i}_ABS.sorted_q20.10Kb.tdf ${genome}" >> ${out} 
 echo "  " >> ${out}
-echo "bedtools genomecov -ibam \${BAM}/${i}_ABS.sorted.bam -bg > ${genomecov}/${i}_genomecov.bed" >> ${out}
-echo "bedtools genomecov -ibam  \${BAMQ20}/${i}_ABS.sorted_q20.bam -bg > ${genomecov}/${i}_q20_genomecov.bed" >> ${out}
+echo "bedtools genomecov -ibam \${BAM}/${i}_ABS.sorted.bam -bg > \${genomecov}/${i}_genomecov.bed" >> ${out}
+echo "bedtools genomecov -ibam  \${BAMQ20}/${i}_ABS.sorted_q20.bam -bg > \${genomecov}/${i}_q20_genomecov.bed" >> ${out}
 echo "bedtools intersect -wa -wb -a \${win_10k} -b \${genomecov}/${i}_genomecov.bed | bedtools groupby -c 7 -o sum > \${genomecov}/${i}_win_10k_genomecov.bed1" >> ${out}
 echo "bedtools intersect -wa -wb -a \${win_10k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 7 -o sum > \${genomecov}/${i}_win_10k_q20_genomecov.bed1" >> ${out}
 echo "bedtools intersect -wa -wb -a \${win_25k} -b \${genomecov}/${i}_genomecov.bed | bedtools groupby -c 7 -o sum > \${genomecov}/${i}_win_25k_genomecov.bed1" >> ${out}
