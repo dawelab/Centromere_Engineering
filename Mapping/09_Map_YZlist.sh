@@ -17,16 +17,21 @@ echo "ml BEDTools/2.29.2-GCC-8.3.0" >> ${out}
 echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}  
 echo "ml IGV/2.16.1-Java-11" >> ${out} 
 echo "ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out} 
-echo "  " >> ${out}
-echo "/scratch/yz77862/illumina_neo4Ls/data" >> ${out}  
-echo "  " >> ${out}
+echo " #The data input file folder " >> ${out}
+echo "cd /scratch/yz77862/illumina_neo4Ls/data" >> ${out}  
+echo " #Trim adaptors " >> ${out}
 echo "trim_galore --fastqc --gzip --paired ${GENOME}_R1_001.fastq.gz ${GENOME}_R2_001.fastq.gz -o . -a CTGTCTCTTATACACATCT " >> ${out}  
-echo "  " >> ${out}
+echo " #The trimmed fastq files " >> ${out}
 echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001.fastq.gz.trimmed.fastq.gz" >> ${out} 
 echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001.fastq.gz.trimmed.fastq.gz" >> ${out} 
+echo "#The genome file  " >> ${out}
 echo "genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}
-echo "win_10k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}
-
+echo "#The windows files  " >> ${out}
+echo "win_10k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_10k_win.bed" >> ${out} 
+echo "win_25k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_25k_win.bed" >> ${out} 
+echo "win_50k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_50k_win.bed" >> ${out} 
+echo "win_100k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win.bed" >> ${out} 
+echo "  " >> ${out}
 echo "SAM=/scratch/yz77862/illumina_neo4Ls/output/SAM" >> ${out}
 echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/BAM" >> ${out}
 echo "BAMQ20=/scratch/yz77862/illumina_neo4Ls/output/BAMQ20 " >> ${out}
