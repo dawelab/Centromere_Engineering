@@ -25,10 +25,10 @@ bedtools makewindows -g genome_size -w 1000000 > AbsGenomePBHIFI_version_1_1m_wi
 bedtools makewindows -g genome_size -w 1000000 > AbsGenomePBHIFI_version_1_5m_win.bed
 
 for i in *.bp;do
-bedtools intersect -wa -wb -a ${win_10k} -b ${i} > win_10k_${i} 
-bedtools intersect -wa -wb -a ${win_25k} -b ${i} > win_25k_${i} 
-bedtools intersect -wa -wb -a ${win_50k} -b ${i} > win_50k_${i} 
-bedtools intersect -wa -wb -a ${win_100k} -b ${i} > win_100k_${i} 
-bedtools intersect -wa -wb -a AbsGenomePBHIFI_version_1_1m_win.bed -b ${i} > win_1m_${i} 
-bedtools intersect -wa -wb -a AbsGenomePBHIFI_version_1_5m_win.bed -b ${i} > win_5m_${i} 
+bedtools intersect -wa -wb -a ${win_10k} -b ${i}  | bedtools groupby -c 8 -o sum  > win_10k_${i} 
+bedtools intersect -wa -wb -a ${win_25k} -b ${i}  | bedtools groupby -c 8 -o sum > win_25k_${i} 
+bedtools intersect -wa -wb -a ${win_50k} -b ${i}  | bedtools groupby -c 8 -o sum > win_50k_${i} 
+bedtools intersect -wa -wb -a ${win_100k} -b ${i} | bedtools groupby -c 8 -o sum  > win_100k_${i} 
+bedtools intersect -wa -wb -a AbsGenomePBHIFI_version_1_1m_win.bed -b ${i} | bedtools groupby -c 8 -o sum  > win_1m_${i} 
+bedtools intersect -wa -wb -a AbsGenomePBHIFI_version_1_5m_win.bed -b ${i} | bedtools groupby -c 8 -o sum  > win_5m_${i} 
 done
