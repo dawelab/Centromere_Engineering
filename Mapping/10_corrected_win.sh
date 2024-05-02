@@ -16,9 +16,19 @@ win_100k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win
 cd /scratch/yz77862/illumina_neo4Ls/output/genomecov
 
 ml BEDTools
+
+genome_fai=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa.fai
+#Only extract the chr size
+head ${genome_fai} > genome_size
+
+bedtools makewindows -g genome_size -w 1000000 > AbsGenomePBHIFI_version_1_1m_win.bed
+bedtools makewindows -g genome_size -w 1000000 > AbsGenomePBHIFI_version_1_5m_win.bed
+
 for i in *.bp;do
 bedtools intersect -wa -wb -a ${win_10k} -b ${i} > win_10k_${i} 
 bedtools intersect -wa -wb -a ${win_25k} -b ${i} > win_25k_${i} 
 bedtools intersect -wa -wb -a ${win_50k} -b ${i} > win_50k_${i} 
 bedtools intersect -wa -wb -a ${win_100k} -b ${i} > win_100k_${i} 
+bedtools intersect -wa -wb -a AbsGenomePBHIFI_version_1_1m_win.bed -b ${i} > win_1m_${i} 
+bedtools intersect -wa -wb -a AbsGenomePBHIFI_version_1_5m_win.bed -b ${i} > win_5m_${i} 
 done
