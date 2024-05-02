@@ -1,3 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=corrected_win                    
+#SBATCH --partition=batch		                            
+#SBATCH --ntasks=1			                            
+#SBATCH --cpus-per-task=4		                       
+#SBATCH --mem=400gb			                               
+#SBATCH --time=168:00:00  		                          
+#SBATCH --output=corrected_win.out			  
+#SBATCH --error=corrected_win.err
+
 win_10k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_10k_win.bed
 win_25k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_25k_win.bed 
 win_50k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_50k_win.bed
