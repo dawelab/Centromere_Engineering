@@ -4,7 +4,7 @@
 #SBATCH --ntasks=1			                            
 #SBATCH --cpus-per-task=4		                       
 #SBATCH --mem=400gb			                               
-#SBATCH --time=168:00:00  		                          
+#SBATCH --time=008:00:00  		                          
 #SBATCH --output=corrected_win.out			  
 #SBATCH --error=corrected_win.err
 
@@ -17,13 +17,15 @@ cd /scratch/yz77862/illumina_neo4Ls/output/genomecov
 
 ml BEDTools
 
+#Calculate the coverage for each bed files
+#for i in *genomecov.bed;do
+#awk '{print $0,($3-$2)*$4}' OFS="\t" ${i} > ${i}.bp
+#done
 
-
-for i in *.bp;do
-bedtools intersect -wa -wb -a ${win_10k} -b ${i}  | bedtools groupby -c 8 -o sum  > win_10k_${i} 
-bedtools intersect -wa -wb -a ${win_25k} -b ${i}  | bedtools groupby -c 8 -o sum > win_25k_${i} 
-bedtools intersect -wa -wb -a ${win_50k} -b ${i}  | bedtools groupby -c 8 -o sum > win_50k_${i} 
-bedtools intersect -wa -wb -a ${win_100k} -b ${i} | bedtools groupby -c 8 -o sum  > win_100k_${i} 
-bedtools intersect -wa -wb -a AbsGenomePBHIFI_version_1_1m_win.bed -b ${i} | bedtools groupby -c 8 -o sum  > win_1m_${i} 
-bedtools intersect -wa -wb -a AbsGenomePBHIFI_version_1_5m_win.bed -b ${i} | bedtools groupby -c 8 -o sum  > win_5m_${i} 
+#Fill the 0s the windows size that lack any reads
+for i in *genomecov.bed.bp;do
+bedtools intersect -wa -wb -a ${win_10k} -b ${i} | bedtools groupby -o sum -c 8 > ${i}.sum1
+bedtools intersect -wa -a ${win_10k} -b ${i} -v | awk '{print $0,0}' OFS="\t" > ${i}.sum2
+cat ${i}.sum1 ${i}.sum2 > ${i}.sum
+rm ${i}.sum2 ${i}.sum1
 done
