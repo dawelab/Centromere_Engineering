@@ -29,3 +29,7 @@ bedtools intersect -wa -a ${win_10k} -b ${i} -v | awk '{print $0,0}' OFS="\t" > 
 cat ${i}.sum1 ${i}.sum2 > ${i}.sum
 rm ${i}.sum2 ${i}.sum1
 done
+
+for i in *sum;do
+sort -b -k1,1 -k2,2n -k3,3n ${i} > ${i}.sort
+done
