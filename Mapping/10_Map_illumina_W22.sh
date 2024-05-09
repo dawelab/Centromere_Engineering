@@ -20,9 +20,11 @@ echo " #The trimmed fastq files " >> ${out}
 echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001_val_1.fq.gz" >> ${out} 
 echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> ${out} 
 echo "#The genome file  " >> ${out}
-echo "genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}
+echo "genome=/scratch/yz77862/MaizeGenome/Zm-W22-REFERENCE-NRGENE-2.0.fa" >> ${out}
 echo "#The windows files  " >> ${out}
-echo "win_100k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win.bed" >> ${out} 
+###################################Add this
+
+echo "win_100k=" >> ${out} 
 echo " #The output file lists " >> ${out}
 echo "SAM=/scratch/yz77862/illumina_neo4Ls/output/W22/SAM" >> ${out}
 echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/W22/BAM" >> ${out}
