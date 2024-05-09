@@ -18,9 +18,6 @@ echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}
 echo "ml IGV/2.16.1-Java-11" >> ${out} 
 echo "#ml Trim_Galore/0.6.7-GCCcore-11.2.0" >> ${out} 
 echo " #The data input file folder " >> ${out}
-echo "#cd /scratch/yz77862/illumina_neo4Ls/data" >> ${out}  
-echo " #Trim adaptors " >> ${out}
-echo "#trim_galore --fastqc --gzip --paired ${i}_R1_001.fastq.gz ${i}_R2_001.fastq.gz -o . -a AGATCGGAAGAGC" >> ${out}  
 echo " #The trimmed fastq files " >> ${out}
 echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001_val_1.fq.gz" >> ${out} 
 echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> ${out} 
@@ -34,11 +31,11 @@ echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/ABS/BAM" >> ${out}
 echo "BAMQ20=/scratch/yz77862/illumina_neo4Ls/output/ABS/BAMQ20 " >> ${out}
 echo "TDF=/scratch/yz77862/illumina_neo4Ls/output/ABS/TDF" >> ${out}
 echo "genomecov=/scratch/yz77862/illumina_neo4Ls/output/ABS/genomecov" >> ${out}
-echo "mkdir -p ${SAM}  " >> ${out}
-echo "mkdir -p ${BAM}  " >> ${out}
-echo "mkdir -p ${BAMQ20}  " >> ${out}
-echo "mkdir -p ${TDF}  " >> ${out}
-echo "mkdir -p ${genomecov}  " >> ${out}
+echo "mkdir -p \${SAM}  " >> ${out}
+echo "mkdir -p \${BAM}  " >> ${out}
+echo "mkdir -p \${BAMQ20}  " >> ${out}
+echo "mkdir -p \${TDF}  " >> ${out}
+echo "mkdir -p \${genomecov}  " >> ${out}
 echo "bwa mem \${genome} \${fastq1} \${fastq2} -M -t 24  > \${SAM}/${i}_ABS.sam" >> ${out}  
 echo "samtools view -b -F 4 -S \${SAM}/${i}_ABS.sam -o \${BAM}/${i}_ABS.bam" >> ${out}  
 echo "samtools sort -o \${BAM}/${i}_ABS.sorted.bam \${BAM}/${i}_ABS.bam" >> ${out}    
