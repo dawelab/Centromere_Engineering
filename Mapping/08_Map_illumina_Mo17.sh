@@ -27,7 +27,7 @@ echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> $
 echo "#The genome file  " >> ${out}
 echo "genome=/scratch/yz77862/MaizeGenome/Zm-Mo17-REFERENCE-CAU-2.0_addname.fa" >> ${out}
 echo "#The windows files  " >> ${out}
-echo "win_100k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win.bed" >> ${out} 
+echo "win_100k=/scratch/yz77862/MaizeGenome/Mo17_100k_win.bed" >> ${out} 
 echo " #The output file lists " >> ${out}
 echo "SAM=/scratch/yz77862/illumina_neo4Ls/output/Mo17/SAM" >> ${out}
 echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/Mo17/BAM" >> ${out}
