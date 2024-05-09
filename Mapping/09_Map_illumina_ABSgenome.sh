@@ -43,12 +43,12 @@ echo "samtools view -q 20 -o \${BAMQ20}/${i}_ABS.sorted_q20.bam \${BAM}/${i}_ABS
 echo "samtools index \${BAM}/${i}_ABS.bam" >> ${out}  
 echo "samtools index \${BAMQ20}/${i}_ABS.sorted_q20.bam" >> ${out}  
 echo "flagstat=/scratch/yz77862/illumina_neo4Ls/output/ABS/flagstat_result.txt" >> ${out}  
-echo "touch ${flagstat}" >> ${out}  
-echo "echo '\${BAM}/${i}_ABS.sorted.bam' >> ${flagstat}" >> ${out}  
-echo "samtools flagstat \${BAM}/${i}_ABS.sorted.bam >> ${flagstat}" >> ${out}  
-echo "echo '\${BAMQ20}/${i}_ABS.sorted_q20.bam' >> ${flagstat}" >> ${out}  
-echo "samtools flagstat \${BAMQ20}/${i}_ABS.sorted_q20.bam >> ${flagstat}" >> ${out}  
-echo "igvtools count -w 100000 \${BAMQ20}/${i}_ABS.sorted_q20.bam \${TDF}/${i}_ABS.sorted_q20.100Kb.tdf ${genome}" >> ${out} 
+echo "touch \${flagstat}" >> ${out}  
+echo "echo '\${BAM}/${i}_ABS.sorted.bam' >> \${flagstat}" >> ${out}  
+echo "samtools flagstat \${BAM}/${i}_ABS.sorted.bam >> \${flagstat}" >> ${out}  
+echo "echo '\${BAMQ20}/${i}_ABS.sorted_q20.bam' >> \${flagstat}" >> ${out}  
+echo "samtools flagstat \${BAMQ20}/${i}_ABS.sorted_q20.bam >> \${flagstat}" >> ${out}  
+echo "igvtools count -w 100000 \${BAMQ20}/${i}_ABS.sorted_q20.bam \${TDF}/${i}_ABS.sorted_q20.100Kb.tdf \${genome}" >> ${out} 
 echo "  " >> ${out}
 echo "bedtools genomecov -ibam  \${BAMQ20}/${i}_ABS.sorted_q20.bam -bg | awk '{print $0,($3-$2)*$4}' OFS="\t" > \${genomecov}/${i}_q20_genomecov.bed" >> ${out}
 echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 8 -o sum > \${genomecov}/${i}_win_100k_q20_genomecov.bed1" >> ${out}
