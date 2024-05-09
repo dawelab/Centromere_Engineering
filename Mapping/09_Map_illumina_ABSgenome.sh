@@ -45,8 +45,7 @@ echo "samtools sort -o \${BAM}/${i}_ABS.sorted.bam \${BAM}/${i}_ABS.bam" >> ${ou
 echo "samtools view -q 20 -o \${BAMQ20}/${i}_ABS.sorted_q20.bam \${BAM}/${i}_ABS.sorted.bam" >> ${out}  
 echo "samtools index \${BAM}/${i}_ABS.bam" >> ${out}  
 echo "samtools index \${BAMQ20}/${i}_ABS.sorted_q20.bam" >> ${out}  
-echo "flagstat=/scratch/yz77862/illumina_neo4Ls/output/ABS/flagstat_result.txt"
-
+echo "flagstat=/scratch/yz77862/illumina_neo4Ls/output/ABS/flagstat_result.txt" >> ${out}  
 echo "touch ${flagstat}" >> ${out}  
 echo "echo '\${BAM}/${i}_ABS.sorted.bam' >> ${flagstat}" >> ${out}  
 echo "samtools flagstat \${BAM}/${i}_ABS.sorted.bam >> ${flagstat}" >> ${out}  
