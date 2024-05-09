@@ -7,8 +7,8 @@ echo "#SBATCH --job-name=map_${i}" >> ${out}
 echo "#SBATCH --partition=batch">> ${out}  		                            
 echo "#SBATCH --ntasks=1">> ${out}  			                            
 echo "#SBATCH --cpus-per-task=4">> ${out}  		                       
-echo "#SBATCH --mem=400gb">> ${out}  			                               
-echo "#SBATCH --time=35:00:00">> ${out}    		                          
+echo "#SBATCH --mem=200gb">> ${out}  			                               
+echo "#SBATCH --time=24:00:00">> ${out}    		                          
 echo "#SBATCH --output=map_${i}.out">> ${out}  			  
 echo "#SBATCH --error=map_${i}.err">> ${out}  
 echo " " >> ${out}  
