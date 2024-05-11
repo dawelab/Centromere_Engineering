@@ -14,6 +14,11 @@ bedtools makewindows -g W22_genome.size -w 100000 > W22_100k_win.bed
 
 
 mkdir -p /scratch/yz77862/illumina_neo4Ls/shell_W22
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/W22/SAM
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/W22/BAM
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/W22/BAMQ20
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/W22/TDF
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/W22/genomecov
 list=/scratch/yz77862/illumina_neo4Ls/data/list
 while read i; do
 out=/scratch/yz77862/illumina_neo4Ls/shell_W22/${i}_mapping.sh
@@ -23,7 +28,7 @@ echo "#SBATCH --partition=batch">> ${out}
 echo "#SBATCH --ntasks=1">> ${out}  			                            
 echo "#SBATCH --cpus-per-task=4">> ${out}  		                       
 echo "#SBATCH --mem=200gb">> ${out}  			                               
-echo "#SBATCH --time=24:00:00">> ${out}    		                          
+echo "#SBATCH --time=48:00:00">> ${out}    		                          
 echo "#SBATCH --output=map_${i}.out">> ${out}  			  
 echo "#SBATCH --error=map_${i}.err">> ${out}  
 echo " " >> ${out}  
@@ -44,11 +49,6 @@ echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/W22/BAM" >> ${out}
 echo "BAMQ20=/scratch/yz77862/illumina_neo4Ls/output/W22/BAMQ20 " >> ${out}
 echo "TDF=/scratch/yz77862/illumina_neo4Ls/output/W22/TDF" >> ${out}
 echo "genomecov=/scratch/yz77862/illumina_neo4Ls/output/W22/genomecov" >> ${out}
-echo "mkdir -p \${SAM}  " >> ${out}
-echo "mkdir -p \${BAM}  " >> ${out}
-echo "mkdir -p \${BAMQ20}  " >> ${out}
-echo "mkdir -p \${TDF}  " >> ${out}
-echo "mkdir -p \${genomecov}  " >> ${out}
 echo "bwa mem \${genome} \${fastq1} \${fastq2} -M -t 24  > \${SAM}/${i}_ABS.sam" >> ${out}  
 echo "samtools view -b -F 4 -S \${SAM}/${i}_ABS.sam -o \${BAM}/${i}_ABS.bam" >> ${out}  
 echo "samtools sort -o \${BAM}/${i}_ABS.sorted.bam \${BAM}/${i}_ABS.bam" >> ${out}    
