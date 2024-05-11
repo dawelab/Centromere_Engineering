@@ -1,4 +1,9 @@
 mkdir -p /scratch/yz77862/illumina_neo4Ls/shell_Mo17
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/Mo17/SAM
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/Mo17/BAM
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/Mo17/BAMQ20
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/Mo17/TDF
+mkdir -p /scratch/yz77862/illumina_neo4Ls/output/Mo17/genomecov
 list=/scratch/yz77862/illumina_neo4Ls/data/list
 while read i; do
 out=/scratch/yz77862/illumina_neo4Ls/shell_Mo17/${i}_mapping.sh
@@ -16,10 +21,10 @@ echo "ml BWA/0.7.17-GCCcore-11.3.0" >> ${out}
 echo "ml BEDTools/2.29.2-GCC-8.3.0" >> ${out}  
 echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}  
 echo "ml IGV/2.16.1-Java-11" >> ${out} 
-#echo " #The trimmed fastq files " >> ${out}
-#echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001_val_1.fq.gz" >> ${out} 
-#echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> ${out} 
-#echo "#The genome file  " >> ${out}
+echo " #The trimmed fastq files " >> ${out}
+echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001_val_1.fq.gz" >> ${out} 
+echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> ${out} 
+echo "#The genome file  " >> ${out}
 echo "genome=/scratch/yz77862/MaizeGenome/Zm-Mo17-REFERENCE-CAU-2.0_addname.fa" >> ${out}
 echo "#The windows files  " >> ${out}
 echo "win_100k=/scratch/yz77862/MaizeGenome/Mo17_100k_win.bed" >> ${out} 
@@ -29,17 +34,12 @@ echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/Mo17/BAM" >> ${out}
 echo "BAMQ20=/scratch/yz77862/illumina_neo4Ls/output/Mo17/BAMQ20 " >> ${out}
 echo "TDF=/scratch/yz77862/illumina_neo4Ls/output/Mo17/TDF" >> ${out}
 echo "genomecov=/scratch/yz77862/illumina_neo4Ls/output/Mo17/genomecov" >> ${out}
-echo "mkdir -p \${SAM}  " >> ${out}
-echo "mkdir -p \${BAM}  " >> ${out}
-echo "mkdir -p \${BAMQ20}  " >> ${out}
-echo "mkdir -p \${TDF}  " >> ${out}
-echo "mkdir -p \${genomecov}  " >> ${out}
-#echo "bwa mem \${genome} \${fastq1} \${fastq2} -M -t 24  > \${SAM}/${i}_ABS.sam" >> ${out}  
-#echo "samtools view -b -F 4 -S \${SAM}/${i}_ABS.sam -o \${BAM}/${i}_ABS.bam" >> ${out}  
-#echo "samtools sort -o \${BAM}/${i}_ABS.sorted.bam \${BAM}/${i}_ABS.bam" >> ${out}    
-#echo "samtools view -q 20 -o \${BAMQ20}/${i}_ABS.sorted_q20.bam \${BAM}/${i}_ABS.sorted.bam" >> ${out}  
-#echo "samtools index \${BAM}/${i}_ABS.bam" >> ${out}  
-#echo "samtools index \${BAMQ20}/${i}_ABS.sorted_q20.bam" >> ${out}  
+echo "bwa mem \${genome} \${fastq1} \${fastq2} -M -t 24  > \${SAM}/${i}_ABS.sam" >> ${out}  
+echo "samtools view -b -F 4 -S \${SAM}/${i}_ABS.sam -o \${BAM}/${i}_ABS.bam" >> ${out}  
+echo "samtools sort -o \${BAM}/${i}_ABS.sorted.bam \${BAM}/${i}_ABS.bam" >> ${out}    
+echo "samtools view -q 20 -o \${BAMQ20}/${i}_ABS.sorted_q20.bam \${BAM}/${i}_ABS.sorted.bam" >> ${out}  
+echo "samtools index \${BAM}/${i}_ABS.bam" >> ${out}  
+echo "samtools index \${BAMQ20}/${i}_ABS.sorted_q20.bam" >> ${out}  
 echo "flagstat=/scratch/yz77862/illumina_neo4Ls/output/Mo17/flagstat_result.txt" >> ${out}  
 echo "touch ${flagstat}" >> ${out}  
 echo "echo '\${BAM}/${i}_ABS.sorted.bam' >> \${flagstat}" >> ${out}  
