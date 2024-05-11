@@ -8,7 +8,9 @@ cd /scratch/yz77862/MaizeGenome
 #bwa index Zm-W22-REFERENCE-NRGENE-2.0.fa
 
 #Get the genome index file
+ml BEDTools
 head Zm-W22-REFERENCE-NRGENE-2.0.chr_scaffolds.fa.gz.fai > W22_genome.size
+bedtools makewindows -g W22_genome.size -w 100000 > W22_100k_win.bed
 
 
 mkdir -p /scratch/yz77862/illumina_neo4Ls/shell_W22
@@ -35,9 +37,7 @@ echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> $
 echo "#The genome file  " >> ${out}
 echo "genome=/scratch/yz77862/MaizeGenome/Zm-W22-REFERENCE-NRGENE-2.0.fa" >> ${out}
 echo "#The windows files  " >> ${out}
-###################################Add this
-
-echo "win_100k=" >> ${out} 
+echo "win_100k=/scratch/yz77862/MaizeGenome/W22_100k_win.bed" >> ${out} 
 echo " #The output file lists " >> ${out}
 echo "SAM=/scratch/yz77862/illumina_neo4Ls/output/W22/SAM" >> ${out}
 echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/W22/BAM" >> ${out}
