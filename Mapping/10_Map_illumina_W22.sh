@@ -1,6 +1,14 @@
 #Download the W22 genome
 wget https://download.maizegdb.org/Zm-W22-REFERENCE-NRGENE-2.0/Zm-W22-REFERENCE-NRGENE-2.0.fa.gz
 #Create the 100k window
+ml BWA/0.7.17-GCCcore-11.3.0
+cd /scratch/yz77862/MaizeGenome
+#it is impossible to build fai index for W22 genome assembly, so I download their fai in maizegdb by following command
+# wget https://download.maizegdb.org/Zm-W22-REFERENCE-NRGENE-2.0/Zm-W22-REFERENCE-NRGENE-2.0.chr_scaffolds.fa.gz.fai
+#bwa index Zm-W22-REFERENCE-NRGENE-2.0.fa
+
+#Get the genome index file
+head Zm-W22-REFERENCE-NRGENE-2.0.chr_scaffolds.fa.gz.fai > W22_genome.size
 
 
 mkdir -p /scratch/yz77862/illumina_neo4Ls/shell_W22
@@ -47,7 +55,7 @@ echo "samtools sort -o \${BAM}/${i}_ABS.sorted.bam \${BAM}/${i}_ABS.bam" >> ${ou
 echo "samtools view -q 20 -o \${BAMQ20}/${i}_ABS.sorted_q20.bam \${BAM}/${i}_ABS.sorted.bam" >> ${out}  
 echo "samtools index \${BAM}/${i}_ABS.bam" >> ${out}  
 echo "samtools index \${BAMQ20}/${i}_ABS.sorted_q20.bam" >> ${out}  
-echo "flagstat=/scratch/yz77862/illumina_neo4Ls/output/ABS/flagstat_result.txt" >> ${out}  
+echo "flagstat=/scratch/yz77862/illumina_neo4Ls/output/W22/flagstat_result.txt" >> ${out}  
 echo "touch \${flagstat}" >> ${out}  
 echo "echo '\${BAM}/${i}_ABS.sorted.bam' >> \${flagstat}" >> ${out}  
 echo "samtools flagstat \${BAM}/${i}_ABS.sorted.bam >> \${flagstat}" >> ${out}  
@@ -55,7 +63,7 @@ echo "echo '\${BAMQ20}/${i}_ABS.sorted_q20.bam' >> \${flagstat}" >> ${out}
 echo "samtools flagstat \${BAMQ20}/${i}_ABS.sorted_q20.bam >> \${flagstat}" >> ${out}  
 echo "igvtools count -w 100000 \${BAMQ20}/${i}_ABS.sorted_q20.bam \${TDF}/${i}_ABS.sorted_q20.100Kb.tdf \${genome}" >> ${out} 
 echo "  " >> ${out}
-echo "bedtools genomecov -ibam  \${BAMQ20}/${i}_ABS.sorted_q20.bam -bg | awk '{print \$0,(\$3-\$2)*\$4}' OFS="\t" > \${genomecov}/${i}_q20_genomecov.bed" >> ${out}
+echo "bedtools genomecov -ibam  \${BAMQ20}/${i}_ABS.sorted_q20.bam -bg | awk '{print \$0,(\$3-\$2)*\$4}' OFS=\"\\t\" > \${genomecov}/${i}_q20_genomecov.bed" >> ${out}
 echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 8 -o sum > \${genomecov}/${i}_win_100k_q20_genomecov.bed1" >> ${out}
 echo " " >> ${out} 
 echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_q20_genomecov.bed -v | awk '{print \$1,\$2,\$3,0}' OFS=\"\\t\" > \${genomecov}/${i}_win_100k_q20_genomecov.bed2" >> ${out} 
