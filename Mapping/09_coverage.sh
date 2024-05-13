@@ -12,7 +12,7 @@ ml BEDTools
 working_dir=/scratch/yz77862/working
 working_dir_ABS=/scratch/yz77862/working/ABS
 working_dir_Mo17=/scratch/yz77862/working/Mo17
-working_dir_W22=/scratch/yz77862/working_W22
+working_dir_W22=/scratch/yz77862/working/W22
 mkdir -p ${working_dir_ABS}
 mkdir -p ${working_dir_Mo17}
 mkdir -p ${working_dir_W22}
@@ -20,15 +20,15 @@ cd /scratch/yz77862/illumina_neo4Ls/output/ABS/BAMQ20
 win_100k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win.bed
 
 for i in *ABS.sorted_q20.bam;do 
-bedtools coverage -a ${win_100k} -b ${i} -sorted > ${working_dir_ABS}/${i}.cov
+bedtools coverage -a ${win_100k} -b ${i} -sorted -f 0.5 > ${working_dir_ABS}/${i}.cov
 done
 
 for i in *ABS.sorted_q20.bam;do 
-bedtools coverage -a ${win_100k} -b ${i} -sorted > ${working_dir_Mo17}/${i}.cov
+bedtools coverage -a ${win_100k} -b ${i} -sorted -f 0.5  > ${working_dir_Mo17}/${i}.cov
 done
 
 for i in *ABS.sorted_q20.bam;do 
-bedtools coverage -a ${win_100k} -b ${i} -sorted > ${working_dir_W22}/${i}.cov
+bedtools coverage -a ${win_100k} -b ${i} -sorted -f 0.5  > ${working_dir_W22}/${i}.cov
 done
 
 
