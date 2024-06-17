@@ -27,7 +27,7 @@ echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> $
 echo "#The genome file  " >> ${out}
 echo "genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa" >> ${out}
 echo "#The windows files  " >> ${out}
-echo "win_100k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win.bed" >> ${out} 
+echo "win_10k=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_10k_win.bed" >> ${out} 
 echo " #The output file lists " >> ${out}
 echo "SAM=/scratch/yz77862/illumina_neo4Ls/output/ABS/SAM" >> ${out}
 echo "BAM=/scratch/yz77862/illumina_neo4Ls/output/ABS/BAM" >> ${out}
@@ -49,8 +49,8 @@ echo "samtools flagstat \${BAMQ20}/${i}_ABS.sorted_q20.bam >> \${flagstat}" >> $
 echo "igvtools count -w 100000 \${BAMQ20}/${i}_ABS.sorted_q20.bam \${TDF}/${i}_ABS.sorted_q20.100Kb.tdf \${genome}" >> ${out} 
 echo "  " >> ${out}
 echo "bedtools genomecov -ibam  \${BAMQ20}/${i}_ABS.sorted_q20.bam -bg | awk '{print \$0,(\$3-\$2)*\$4}' OFS=\"\\t\" > \${genomecov}/${i}_q20_genomecov.bed" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 8 -o sum > \${genomecov}/${i}_win_100k_q20_genomecov.bed1" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win_100k} -b \${genomecov}/${i}_q20_genomecov.bed -v | awk '{print \$1,\$2,\$3,0}' OFS=\"\\t\" > \${genomecov}/${i}_win_100k_q20_genomecov.bed2" >> ${out} 
-echo "cat \${genomecov}/${i}_win_100k_q20_genomecov.bed1 \${genomecov}/${i}_win_100k_q20_genomecov.bed2 | sort -b -k1,1 -k2,2n -k3,3n > \${genomecov}/${i}_win_100k_q20_genomecov.bed" >> ${out} 
+echo "bedtools intersect -wa -wb -a \${win_10k} -b \${genomecov}/${i}_q20_genomecov.bed | bedtools groupby -c 8 -o sum > \${genomecov}/${i}_win_10k_q20_genomecov.bed1" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win_10k} -b \${genomecov}/${i}_q20_genomecov.bed -v | awk '{print \$1,\$2,\$3,0}' OFS=\"\\t\" > \${genomecov}/${i}_win_10k_q20_genomecov.bed2" >> ${out} 
+echo "cat \${genomecov}/${i}_win_100k_q20_genomecov.bed1 \${genomecov}/${i}_win_100k_q20_genomecov.bed2 | sort -b -k1,1 -k2,2n -k3,3n > \${genomecov}/${i}_win_10k_q20_genomecov.bed" >> ${out} 
 echo "rm \${genomecov}/${i}_win_100k_q20_genomecov.bed1 \${genomecov}/${i}_win_100k_q20_genomecov.bed2" >> ${out} 
 done < <(cut -f1 ${list} | grep -v 'skip' | sort -u)
