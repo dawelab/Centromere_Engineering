@@ -97,8 +97,8 @@ echo "bedtools genomecov -ibam output/Mo17/BAMQ20/${i}_Mo17_sorted_q20.bam -bg >
 #######################################################
 #####             10kb-window files               #####
 #######################################################
-echo "win10k_ABS=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_\${j}k_win.bed" >> ${out} 
-echo "win10k_W22=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_\${j}k_win.bed" >> ${out} 
+echo "win10k_ABS=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_10k_win.bed" >> ${out} 
+echo "win10k_W22=/scratch/yz77862/MaizeGenome/Zm-W22-REFERENCE-NRGENE-2.0.chr_scaffolds.10k.bed" >> ${out} 
 echo "win10k_Mo17=/scratch/yz77862/MaizeGenome/Mo17_10k_win.bed" >> ${out} 
 #######################################################
 #####             10kb-win genomecov              #####
