@@ -9,7 +9,7 @@ for i in ABS Mo17 W22;do #For different mapping
   done
 done
 mkdir -p /scratch/yz77862/illumina_neo4Ls/shell/
-list=/scratch/yz77862/illumina_neo4Ls/list
+list=/scratch/yz77862/illumina_neo4Ls/data/list
 while read i;do
 out=/scratch/yz77862/illumina_neo4Ls/shell/${i}_mapping.sh
 echo '#!/bin/bash' >> ${out}
