@@ -80,12 +80,12 @@ echo "samtools index \${output_dir}/Mo17/BAMQ20/${i}_Mo17_sorted_q20.bam" >> ${o
 #######################################################
 #####                     IGVtools               #####
 #######################################################
-echo "igvtools count -w 10000 \${output_dir}/ABS/BAM/${i}_ABS_sorted.bam \${output_dir}/ABS/TDF/${i}_ABS_sorted_10Kb.tdf \${ABS_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/W22/BAM/${i}_W22_sorted.bam \${output_dir}/W22/TDF/${i}_W22_sorted_10Kb.tdf \${W22_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/Mo17/BAM/${i}_Mo17_sorted.bam \${output_dir}/Mo17/TDF/${i}_Mo17_sorted_10Kb.tdf \${Mo17_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/ABS/BAMQ20/${i}_ABS_sorted_q20.bam \${output_dir}/ABS/TDF/${i}_ABS_sorted_10Kb_q20.tdf  \${ABS_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/W22/BAMQ20/${i}_W22_sorted_q20.bam \${output_dir}/W22/TDF/${i}_W22_sorted_10Kb_q20.tdf  \${W22_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/Mo17/BAMQ20/${i}_Mo17_sorted_q20.bam \${output_dir}/Mo17/TDF/${i}_Mo17_sorted_10Kb_q20.tdf  \${Mo17_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/ABS/BAM/${i}_ABS_sorted.bam \${output_dir}/ABS/TDF/${i}_ABS_sorted_100Kb.tdf \${ABS_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/W22/BAM/${i}_W22_sorted.bam \${output_dir}/W22/TDF/${i}_W22_sorted_100Kb.tdf \${W22_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/Mo17/BAM/${i}_Mo17_sorted.bam \${output_dir}/Mo17/TDF/${i}_Mo17_sorted_100Kb.tdf \${Mo17_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/ABS/BAMQ20/${i}_ABS_sorted_q20.bam \${output_dir}/ABS/TDF/${i}_ABS_sorted_100Kb_q20.tdf  \${ABS_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/W22/BAMQ20/${i}_W22_sorted_q20.bam \${output_dir}/W22/TDF/${i}_W22_sorted_100Kb_q20.tdf  \${W22_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/Mo17/BAMQ20/${i}_Mo17_sorted_q20.bam \${output_dir}/Mo17/TDF/${i}_Mo17_sorted_100Kb_q20.tdf  \${Mo17_genome}" >> ${out} 
 #######################################################
 #####                  BAM to BED               #####
 #######################################################
@@ -102,23 +102,23 @@ echo "awk '{print \$1,\$2,\$3,\$4,(\$3-\$2)*\$4}' OFS=\"\\t\" \${output_dir}/ABS
 echo "awk '{print \$1,\$2,\$3,\$4,(\$3-\$2)*\$4}' OFS=\"\\t\" \${output_dir}/W22/BEDQ20/${i}_W22_sorted.bed > \${output_dir}/W22/BEDQ20/${i}_W22.bed" >> ${out}
 echo "awk '{print \$1,\$2,\$3,\$4,(\$3-\$2)*\$4}' OFS=\"\\t\" \${output_dir}/Mo17/BEDQ20/${i}_Mo17_sorted.bed > \${output_dir}/Mo17/BEDQ20/${i}_Mo17.bed" >> ${out}
 #######################################################
-#####             10kb-window files               #####
+#####             100kb-window files               #####
 #######################################################
-echo "win10k_ABS=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_10k_win.bed" >> ${out} 
-echo "win10k_W22=/scratch/yz77862/MaizeGenome/Zm-W22-REFERENCE-NRGENE-2.0.chr_scaffolds.10k.bed" >> ${out} 
-echo "win10k_Mo17=/scratch/yz77862/MaizeGenome/Mo17_10k_win.bed" >> ${out} 
+echo "win100k_ABS=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1_100k_win.bed" >> ${out} 
+echo "win100k_W22=/scratch/yz77862/MaizeGenome/W22_100k_win.bed" >> ${out} 
+echo "win100k_Mo17=/scratch/yz77862/MaizeGenome/Mo17_100k_win.bed" >> ${out} 
 #######################################################
-#####             10kb-win genomecov              #####
+#####             100kb-win genomecov              #####
 #########################################c##############
-echo "bedtools intersect -wa -wb -a \${win10k_ABS} -b \${output_dir}/ABS/BED/${i}_ABS.bed | bedtools groupby -c 8 -o sum >\${output_dir}/ABS/genomecov/${i}_ABS_10k.bed1" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win10k_ABS} -b \${output_dir}/ABS/BED/${i}_ABS.bed -v | awk '{print \$1,\$2,\$3,0}' OFS=\"\\t\"> \${output_dir}/ABS/genomecov/${i}_ABS_10k.bed2" >> ${out} 
-echo "cat output/ABS/genomecov/${i}_ABS_10k.bed1 \${output_dir}/ABS/genomecov/${i}_ABS_10k.bed2 | sort -b -k1,1 -k2,2n -k3,3n  > \${output_dir}/ABS/genomecov/${i}_ABS_10k.bed" >> ${out}
-echo "rm output/ABS/genomecov/${i}_ABS_10k.bed2 \${output_dir}/ABS/genomecov/${i}_ABS_10k.bed1"  >> ${out}
-echo "bedtools intersect -wa -wb -a \${win10k_W22} -b \${output_dir}/W22/BED/${i}_W22.bed | bedtools groupby -c 8 -o sum > \${output_dir}/W22/genomecov/${i}_W22_10k.bed1" >> ${out}
-echo "bedtools intersect -wa -wb -a \${win10k_W22} -b \${output_dir}/W22/BED/${i}_W22.bed -v | awk '{print \$1,\$2,\$3,0}' OFS=\"\\t\"> \${output_dir}/W22/genomecov/${i}_W22_10k.bed2" >> ${out} 
-echo "cat \${output_dir}/W22/genomecov/${i}_W22_10k.bed1 \${output_dir}/W22/genomecov/${i}_W22_10k.bed2 | sort -b -k1,1 -k2,2n -k3,3n  > \${output_dir}/W22/genomecov/${i}_W22_10k.bed" >> ${out}
-echo "rm \${output_dir}/W22/genomecov/${i}_W22_10k.bed2 \${output_dir}/W22/genomecov/${i}_W22_10k.bed1"  >> ${out}
-echo "bedtools intersect -wa -wb -a \${win10k_Mo17} -b \${output_dir}/Mo17/BED/${i}_Mo17.bed | bedtools groupby -c 8 -o sum > \${output_dir}/Mo17/genomecov/${i}_Mo17_10k.bed1" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win100k_ABS} -b \${output_dir}/ABS/BED/${i}_ABS.bed | bedtools groupby -c 8 -o sum >\${output_dir}/ABS/genomecov/${i}_ABS_100k.bed1" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win100k_ABS} -b \${output_dir}/ABS/BED/${i}_ABS.bed -v | awk '{print \$1,\$2,\$3,0}' OFS=\"\\t\"> \${output_dir}/ABS/genomecov/${i}_ABS_100k.bed2" >> ${out} 
+echo "cat output/ABS/genomecov/${i}_ABS_100k.bed1 \${output_dir}/ABS/genomecov/${i}_ABS_100k.bed2 | sort -b -k1,1 -k2,2n -k3,3n  > \${output_dir}/ABS/genomecov/${i}_ABS_100k.bed" >> ${out}
+echo "rm output/ABS/genomecov/${i}_ABS_100k.bed2 \${output_dir}/ABS/genomecov/${i}_ABS_100k.bed1"  >> ${out}
+echo "bedtools intersect -wa -wb -a \${win100k_W22} -b \${output_dir}/W22/BED/${i}_W22.bed | bedtools groupby -c 8 -o sum > \${output_dir}/W22/genomecov/${i}_W22_100k.bed1" >> ${out}
+echo "bedtools intersect -wa -wb -a \${win100k_W22} -b \${output_dir}/W22/BED/${i}_W22.bed -v | awk '{print \$1,\$2,\$3,0}' OFS=\"\\t\"> \${output_dir}/W22/genomecov/${i}_W22_100k.bed2" >> ${out} 
+echo "cat \${output_dir}/W22/genomecov/${i}_W22_100k.bed1 \${output_dir}/W22/genomecov/${i}_W22_100k.bed2 | sort -b -k1,1 -k2,2n -k3,3n  > \${output_dir}/W22/genomecov/${i}_W22_100k.bed" >> ${out}
+echo "rm \${output_dir}/W22/genomecov/${i}_W22_100k.bed2 \${output_dir}/W22/genomecov/${i}_W22_100k.bed1"  >> ${out}
+echo "bedtools intersect -wa -wb -a \${win100k_Mo17} -b \${output_dir}/Mo17/BED/${i}_Mo17.bed | bedtools groupby -c 8 -o sum > \${output_dir}/Mo17/genomecov/${i}_Mo17_100k.bed1" >> ${out}
 echo "bedtools intersect -wa -wb -a \${win10k_Mo17} -b \${output_dir}/Mo17/BED/${i}_Mo17.bed -v | awk '{print \$1,\$2,\$3,0}' OFS=\"\\t\"> \${output_dir}/Mo17/genomecov/${i}_Mo17_10k.bed2" >> ${out} 
 echo "cat \${output_dir}/Mo17/genomecov/${i}_Mo17_10k.bed1 \${output_dir}/Mo17/genomecov/${i}_Mo17_10k.bed2 | sort -b -k1,1 -k2,2n -k3,3n  > \${output_dir}/Mo17/genomecov/${i}_Mo17_10k.bed" >> ${out}
 echo "rm \${output_dir}/Mo17/genomecov/${i}_Mo17_10k.bed2 \${output_dir}/Mo17/genomecov/${i}_Mo17_10k.bed1"  >> ${out}
