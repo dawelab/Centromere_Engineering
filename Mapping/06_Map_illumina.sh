@@ -1,16 +1,17 @@
 ############################################################
 ###         Create directories for mapping             #####
 ############################################################
-mkdir -p /scratch/yz77862/CUTnTag/
-cd /scratch/yz77862/CUTnTag/
+mkdir -p /scratch/yz77862/illumina_neo4Ls/
+cd /scratch/yz77862/illumina_neo4Ls/output
 for i in ABS Mo17 W22;do #For different mapping 
-  for j in SAM BAM BAMQ20 BED BEDQ20 genomecov ratio TDF shell;do
+  for j in SAM BAM BAMQ20 BED BEDQ20 genomecov ratio TDF;do
   mkdir -p ${i}/${j}
   done
 done
-list=/scratch/yz77862/CUTnTag/data/list
+mkdir -p /scratch/yz77862/illumina_neo4Ls/shell/
+list=/scratch/yz77862/illumina_neo4Ls/list
 while read i;do
-out=/scratch/yz77862/CUTnTag/shell/${i}_mapping.sh
+out=/scratch/yz77862/illumina_neo4Ls/shell/${i}_mapping.sh
 echo '#!/bin/bash' >> ${out}
 echo "#SBATCH --job-name=${i}_mapping" >> ${out}                 
 echo "#SBATCH --partition=batch" >> ${out}   		                            
@@ -27,8 +28,8 @@ echo "ml SAMtools/1.16.1-GCC-11.3.0" >> ${out}
 echo "ml IGV/2.16.1-Java-11" >> ${out} 
 echo " " >> ${out} 
 #The main working directory
-echo "cd /scratch/yz77862/CUTnTag " >> ${out} 
-echo "output_dir=/scratch/yz77862/CUTnTag/output" >> ${out} 
+echo "cd /scratch/yz77862/illumina_neo4Ls/output " >> ${out} 
+echo "output_dir=/scratch/yz77862/illumina_neo4Ls/output" >> ${out} 
 #######################################################
 #####Set up the value for different mapping genome#####
 #######################################################
@@ -38,8 +39,8 @@ echo "Mo17_genome=/scratch/yz77862/MaizeGenome/Zm-Mo17-REFERENCE-CAU-2.0_addname
 #######################################################
 #####       Set up the value for input            #####
 #######################################################
-echo "fastq1=/scratch/yz77862/CUTnTag/data/${i}_R1_001_val_1.fq.gz" >> ${out} 
-echo "fastq2=/scratch/yz77862/CUTnTag/data/${i}_R2_001_val_2.fq.gz" >> ${out} 
+echo "fastq1=/scratch/yz77862/illumina_neo4Ls/data/${i}_R1_001_val_1.fq.gz" >> ${out} 
+echo "fastq2=/scratch/yz77862/illumina_neo4Ls/data/${i}_R2_001_val_2.fq.gz" >> ${out} 
 #######################################################
 #####       Map to different genomes             #####
 #######################################################
