@@ -80,12 +80,12 @@ echo "samtools index \${output_dir}/Mo17/BAMQ20/${i}_Mo17_sorted_q20.bam" >> ${o
 #######################################################
 #####                     IGVtools               #####
 #######################################################
-echo "igvtools count -w 10000 \${output_dir}/ABS/BAM/${i}_ABS_sorted.bam \${output_dir}/ABS/TDF/${i}_ABS_sorted_100Kb.tdf \${ABS_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/W22/BAM/${i}_W22_sorted.bam \${output_dir}/W22/TDF/${i}_W22_sorted_100Kb.tdf \${W22_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/Mo17/BAM/${i}_Mo17_sorted.bam \${output_dir}/Mo17/TDF/${i}_Mo17_sorted_100Kb.tdf \${Mo17_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/ABS/BAMQ20/${i}_ABS_sorted_q20.bam \${output_dir}/ABS/TDF/${i}_ABS_sorted_100Kb_q20.tdf  \${ABS_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/W22/BAMQ20/${i}_W22_sorted_q20.bam \${output_dir}/W22/TDF/${i}_W22_sorted_100Kb_q20.tdf  \${W22_genome}" >> ${out} 
-echo "igvtools count -w 10000 \${output_dir}/Mo17/BAMQ20/${i}_Mo17_sorted_q20.bam \${output_dir}/Mo17/TDF/${i}_Mo17_sorted_100Kb_q20.tdf  \${Mo17_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/ABS/BAM/${i}_ABS_sorted.bam \${output_dir}/ABS/TDF/${i}_ABS_sorted_100Kb.tdf \${ABS_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/W22/BAM/${i}_W22_sorted.bam \${output_dir}/W22/TDF/${i}_W22_sorted_100Kb.tdf \${W22_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/Mo17/BAM/${i}_Mo17_sorted.bam \${output_dir}/Mo17/TDF/${i}_Mo17_sorted_100Kb.tdf \${Mo17_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/ABS/BAMQ20/${i}_ABS_sorted_q20.bam \${output_dir}/ABS/TDF/${i}_ABS_sorted_100Kb_q20.tdf  \${ABS_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/W22/BAMQ20/${i}_W22_sorted_q20.bam \${output_dir}/W22/TDF/${i}_W22_sorted_100Kb_q20.tdf  \${W22_genome}" >> ${out} 
+echo "igvtools count -w 100000 \${output_dir}/Mo17/BAMQ20/${i}_Mo17_sorted_q20.bam \${output_dir}/Mo17/TDF/${i}_Mo17_sorted_100Kb_q20.tdf  \${Mo17_genome}" >> ${out} 
 #######################################################
 #####                  BAM to BED               #####
 #######################################################
