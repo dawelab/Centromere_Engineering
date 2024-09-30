@@ -72,8 +72,8 @@ kpAddBaseNumbers(kp, tick.dist = 500000, tick.len = 10, tick.col="red", cex=1,
 kpPlotLinks(kp, data=start.regs, data2=end.regs,  r0=-.5, r1 = -.25, y= 1.6,col ='#667180' )
 kpHeatmap(kp, data=A188_GFF_range, chr="A188", r0=0.0, r1 = 0.1, col =  '#8b482d')
 kpHeatmap(kp, data=ABS_A188_range, chr="ABS", r0=-0.2, r1 =-0.3, col =  '#8b482d')
-kpHeatmap(kp, data=ABS_blast_range, chr="ABS", r0=-0.3, r1 =-0.4 ,colors = '#26705e')
-kpHeatmap(kp, data=pACH25_range, chr="ABS", r0=-0.4, r1 =-0.5 ,colors = '#7c6e81')
+kpHeatmap(kp, data=ABS_blast_range, chr="ABS", r0=-0.4, r1 =-0.5 ,colors = '#26705e')
+kpHeatmap(kp, data=pACH25_range, chr="ABS", r0=-0.3, r1 =-0.4 ,colors = '#7c6e81')
 kpRect(kp, chr="ABS", x0=173348777, x1=189064044, y0=1, y1=0.6, r0= -0.5, r1 = -0.6, col='#be8b2f')
 kpRect(kp, chr="ABS", x0=189064045, x1=189142585, y0=1, y1=0.6, r0= -0.55, r1 = -0.65, col='#be8b2f')
 kpRect(kp, chr="ABS", x0=189142686, x1=189483512, y0=1, y1=0.6, r0= -0.5, r1 = -0.6, col='#be8b2f')
@@ -81,5 +81,3 @@ kpRect(kp, chr="ABS", x0=189483513, x1=201037852, y0=1, y1=0.6, r0= -0.55, r1 = 
 kpRect(kp, chr="ABS", x0=202061917, x1=210000000, y0=1, y1=0.6, r0= -0.7, r1 = -0.8, col='green')
 kpRect(kp, chr="ABS", x0=173348777, x1=189142585, y0=1.5, y1=0.6, r0= -0.9, r1 = -1.0, col='#be8b2f',border=NA)
 kpRect(kp, chr="ABS", x0=189142686, x1=201037852, y0=1.5, y1=0.6, r0= -0.75, r1 = -0.85, col='#be8b2f',border=NA)
-
-
