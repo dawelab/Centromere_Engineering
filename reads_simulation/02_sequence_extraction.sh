@@ -1,4 +1,12 @@
-
+#!/bin/bash
+#SBATCH --job-name=read_extract                    
+#SBATCH --partition=highmem_p		                            
+#SBATCH --ntasks=1			                            
+#SBATCH --cpus-per-task=4		                       
+#SBATCH --mem=800gb			                               
+#SBATCH --time=168:00:00  		                          
+#SBATCH --output=read_extract.out			  
+#SBATCH --error=read_extract.err
 
 
 ml seqtk/1.3-GCC-11.3.0
