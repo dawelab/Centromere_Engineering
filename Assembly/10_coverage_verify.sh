@@ -19,3 +19,4 @@ minimap2 -ax map-hifi ${ABS} ${fastq} > AbsGenomePBHIFI_hifi_read_mapping.sam
 
 ml SAMtools/1.18-GCC-12.3.0  
 samtools view -b -F 4 -S AbsGenomePBHIFI_hifi_read_mapping.sam -o AbsGenomePBHIFI_hifi_read_mapping.bam
+samtools sort -o AbsGenomePBHIFI_hifi_read_ABS_sorted.bam AbsGenomePBHIFI_hifi_read_mapping.bam
