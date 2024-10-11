@@ -33,16 +33,16 @@ ABS_genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa
 #####       Set up the value for input            #####
 #######################################################
 while read GENOME;do
-fastq1=/scratch/yz77862/mRNA/${i}_R1_001_val_1.fq.gz
-fastq2=/scratch/yz77862/mRNA/${i}_R2_001_val_2.fq.gz
+fastq1=/scratch/yz77862/mRNA/${GENOME}_R1_001_val_1.fq.gz
+fastq2=/scratch/yz77862/mRNA/${GENOME}_R2_001_val_2.fq.gz
 #######################################################
 #####       Map to different genomes             #####
 #######################################################
-bwa mem ${ABS_genome} ${fastq1} ${fastq2} -M -t 24  > ${output_dir}/${i}_ABS.sam 
-samtools view -b -F 4 -S ${output_dir}/${i}_ABS.sam -o ${output_dir}/${i}_ABS.bam
-samtools sort -o ${output_dir}/${i}_ABS_sorted.bam ${output_dir}/${i}_ABS.bam
-samtools view -q 20 -o ${output_dir}/${i}_ABS_sorted_q20.bam ${output_dir}/${i}_ABS_sorted.bam
+bwa mem ${ABS_genome} ${fastq1} ${fastq2} -M -t 24  > ${output_dir}/${GENOME}_ABS.sam 
+samtools view -b -F 4 -S ${output_dir}/${i}_ABS.sam -o ${output_dir}/${GENOME}_ABS.bam
+samtools sort -o ${output_dir}/${GENOME}_ABS_sorted.bam ${output_dir}/${GENOME}_ABS.bam
+samtools view -q 20 -o ${output_dir}/${GENOME}_ABS_sorted_q20.bam ${output_dir}/${GENOME}_ABS_sorted.bam
 
-samtools index ${output_dir}/${i}_ABS_sorted_q20.bam
-samtools index ${output_dir}/${i}_ABS.bam
+samtools index ${output_dir}/${GENOME}_ABS_sorted_q20.bam
+samtools index ${output_dir}/${GENOME}_ABS.bam
 done < <(cut -f1 ${list} | grep -v 'skip' | sort -u )
