@@ -3,7 +3,6 @@ mkdir -p /scratch/yz77862/mRNA/gene_guide/shell
 mkdir -p /scratch/yz77862/mRNA/gene_guide/round1
 mkdir -p /scratch/yz77862/mRNA/gene_guide/round2
 
-
 list=/scratch/yz77862/mRNA/list
 while read INPUT; do
 
@@ -14,13 +13,13 @@ OUT=/scratch/yz77862/mRNA/gene_guide/shell/${INPUT}.sh
     echo "#SBATCH --nodes=1"   >> ${OUT}                  
     echo "#SBATCH --ntasks=1"   >> ${OUT}              
     echo "#SBATCH --cpus-per-task=18"   >> ${OUT}          
-    echo "#SBATCH --mem=150G"   >> ${OUT}                  
+    echo "#SBATCH --mem=200G"   >> ${OUT}                  
     echo "#SBATCH --time=030:00:00"   >> ${OUT}             
     echo "#SBATCH --output=${INPUT}_fq_bam.out"   >> ${OUT}         
     echo "#SBATCH --error=${INPUT}_fq_bam.err"   >> ${OUT}         
     echo " "  >> ${OUT}  
     echo "ml STAR" >> ${OUT}  
-    echo "cd /scratch/yz77a862/mRNA/gene_guide/round1" >> ${OUT}
+    echo "cd /scratch/yz77862/mRNA/gene_guide/round1" >> ${OUT}
     echo " "  >> ${OUT}
     echo "thread=18"  >> ${OUT}  
     echo "index=/scratch/yz77862/ABS_Pacbio_index"  >> ${OUT}  
@@ -40,7 +39,7 @@ OUT=/scratch/yz77862/mRNA/gene_guide/shell/${INPUT}.sh
     echo "--outFilterMultimapNmax 10000" >> ${OUT}  
     echo "--sjdbGTFfile \${gtf}" >> ${OUT}  
     echo " "  >> ${OUT}
-    echo "cd /scratch/yz77a862/mRNA/gene_guide/round2"  >> ${OUT}
+    echo "cd /scratch/yz77862/mRNA/gene_guide/round2"  >> ${OUT}
     echo " " >> ${OUT}
     echo "SJ=/scratch/yz77862/mRNA/gene_guide/round1/${INPUT}_STARpass1/SJ.out.tab"  >> ${OUT}
     echo "STAR \\"  >> ${OUT}
