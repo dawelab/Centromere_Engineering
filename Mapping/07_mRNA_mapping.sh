@@ -1,48 +1,60 @@
-#!/bin/bash
-#SBATCH --job-name=TrimAdaptor              
-#SBATCH --partition=batch                                           
-#SBATCH --ntasks=1                                                  
-#SBATCH --cpus-per-task=4                                      
-#SBATCH --mem=200gb                                                    
-#SBATCH --time=10:00:00                                           
-#SBATCH --output=TrimAdaptor.out                          
-#SBATCH --error=TrimAdaptor.err
+mkdir -p /scratch/yz77862/mRNA/gene_guide
+mkdir -p /scratch/yz77862/mRNA/gene_guide/shell
+mkdir -p /scratch/yz77862/mRNA/gene_guide/round1
+mkdir -p /scratch/yz77862/mRNA/gene_guide/round2
 
-ml Trim_Galore/0.6.7-GCCcore-11.2.0 
-cd /scratch/yz77862/mRNA
+
 list=/scratch/yz77862/mRNA/list
-#while read GENOME;do
-#trim_galore --fastqc --gzip --paired ${GENOME}_R1_001.fastq.gz ${GENOME}_R2_001.fastq.gz -o . 
-#done < <(cut -f1 ${list} | grep -v 'skip' | sort -u )
+while read INPUT; do
 
-
-ml BWA/0.7.17-GCCcore-11.3.0 
-ml BEDTools/2.29.2-GCC-8.3.0 
-ml SAMtools/1.16.1-GCC-11.3.0 
-ml IGV/2.16.1-Java-11
-
-#The main working directory
-mkdir -p /scratch/yz77862/mRNA/output
-cd /scratch/yz77862/mRNA/output
-output_dir=/scratch/yz77862/mRNA/output
-#######################################################
-#####Set up the value for different mapping genome#####
-#######################################################
-ABS_genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa  
-#######################################################
-#####       Set up the value for input            #####
-#######################################################
-while read GENOME;do
-#fastq1=/scratch/yz77862/mRNA/${GENOME}_R1_001_val_1.fq.gz
-#fastq2=/scratch/yz77862/mRNA/${GENOME}_R2_001_val_2.fq.gz
-#######################################################
-#####       Map to different genomes             #####
-#######################################################
-#bwa mem ${ABS_genome} ${fastq1} ${fastq2} -M -t 24  > ${output_dir}/${GENOME}_ABS.sam 
-samtools view -b -F 4 -S ${output_dir}/${GENOME}_ABS.sam -o ${output_dir}/${GENOME}_ABS.bam
-samtools sort -o ${output_dir}/${GENOME}_ABS_sorted.bam ${output_dir}/${GENOME}_ABS.bam
-samtools view -q 20 -o ${output_dir}/${GENOME}_ABS_sorted_q20.bam ${output_dir}/${GENOME}_ABS_sorted.bam
-
-samtools index ${output_dir}/${GENOME}_ABS_sorted_q20.bam
-samtools index ${output_dir}/${GENOME}_ABS.bam
-done < <(cut -f1 ${list} | grep -v 'skip' | sort -u )
+OUT=/scratch/yz77862/mRNA/gene_guide/shell/${INPUT}.sh
+    echo '#!/bin/bash'  >> ${OUT} 
+    echo "#SBATCH --job-name=${INPUT}_mapping"   >> ${OUT}            
+    echo "#SBATCH --partition=batch"   >> ${OUT} 
+    echo "#SBATCH --nodes=1"   >> ${OUT}                  
+    echo "#SBATCH --ntasks=1"   >> ${OUT}              
+    echo "#SBATCH --cpus-per-task=18"   >> ${OUT}          
+    echo "#SBATCH --mem=150G"   >> ${OUT}                  
+    echo "#SBATCH --time=030:00:00"   >> ${OUT}             
+    echo "#SBATCH --output=${INPUT}_fq_bam.out"   >> ${OUT}         
+    echo "#SBATCH --error=${INPUT}_fq_bam.err"   >> ${OUT}         
+    echo " "  >> ${OUT}  
+    echo "ml STAR" >> ${OUT}  
+    echo "cd /scratch/yz77a862/mRNA/gene_guide/round1" >> ${OUT}
+    echo " "  >> ${OUT}
+    echo "thread=18"  >> ${OUT}  
+    echo "index=/scratch/yz77862/ABS_Pacbio_index"  >> ${OUT}  
+    echo "read1=/scratch/yz77862/mRNA/${INPUT}_R1_001_val_1.fq.gz"  >> ${OUT}  
+    echo "read1=/scratch/yz77862/mRNA/${INPUT}_R2_001_val_2.fq.gz"  >> ${OUT}  
+    echo " "  >> ${OUT}  
+    echo "STAR \\"  >> ${OUT}    
+    echo "--runMode alignReads \\"  >> ${OUT}  
+    echo "--genomeDir \${index}  \\"  >> ${OUT}  
+    echo "--twopassMode Basic  \\"  >> ${OUT}  
+    echo "​--runThreadN \${thread} \\"  >> ${OUT}  
+    echo "--readFilesIn \${read1} \${read2} \\"  >> ${OUT}  
+    echo "--outSAMtype None \\"  >> ${OUT}  
+    echo "--outFileNamePrefix ${INPUT} \\"  >> ${OUT}  
+    echo "--outFilterScoreMin 50 \\" >> ${OUT}  
+    echo "--outFilterMultimapNmax 10000" >> ${OUT}  
+    echo " "  >> ${OUT}
+    echo "cd /scratch/yz77a862/mRNA/gene_guide/round2"  >> ${OUT}
+    echo " " >> ${OUT}
+    echo "SJ=/scratch/yz77862/mRNA/gene_guide/round1/${INPUT}_STARpass1/SJ.out.tab"  >> ${OUT}
+    echo "STAR \\"  >> ${OUT}
+    echo "--genomeDir \${index} \\"  >> ${OUT}
+    echo "--runThreadN \${thread} \\"  >> ${OUT}
+    echo "--sjdbFileChrStartEnd \${SJ} \\"  >> ${OUT}
+    echo "--runMode alignReads \\"  >> ${OUT}
+    echo "--readFilesIn \${read1} \${read2}\\"  >> ${OUT}
+    echo "--outSAMattributes All \\"  >> ${OUT}
+    echo "--outSAMmapqUnique 10 \\"  >> ${OUT}
+    echo "--outFilterMismatchNmax 3 \\"  >> ${OUT}
+    echo "--outFileNamePrefix ${INPUT}_round-2 \\"  >> ${OUT}
+    echo "--outBAMsortingThreadN 4 \\"  >> ${OUT}
+    echo "--outSAMtype BAM SortedByCoordinate \\"  >> ${OUT}
+    echo "--outFilterScoreMin 50 \\" >> ${OUT}  
+    echo "--outFilterMultimapNmax 10000 \\" >> ${OUT}  
+    echo "--outWigType bedGraph read1_5p"  >> ${OUT}
+   # sbatch ${OUT}
+done < <(cut -f1,2 ${list} | grep -v 'skip' | sort -u)
