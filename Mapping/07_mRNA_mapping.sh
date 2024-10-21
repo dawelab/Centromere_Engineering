@@ -25,7 +25,8 @@ OUT=/scratch/yz77862/mRNA/gene_guide/shell/${INPUT}.sh
     echo "thread=18"  >> ${OUT}  
     echo "index=/scratch/yz77862/ABS_Pacbio_index"  >> ${OUT}  
     echo "read1=/scratch/yz77862/mRNA/${INPUT}_R1_001_val_1.fq.gz"  >> ${OUT}  
-    echo "read1=/scratch/yz77862/mRNA/${INPUT}_R2_001_val_2.fq.gz"  >> ${OUT}  
+    echo "read2=/scratch/yz77862/mRNA/${INPUT}_R2_001_val_2.fq.gz"  >> ${OUT}  
+    echo "gtf=/scratch/yz77862/liftoff/A188_liftoff_ABS_cds.gtf"  >> ${OUT}   
     echo " "  >> ${OUT}  
     echo "STAR \\"  >> ${OUT}    
     echo "--runMode alignReads \\"  >> ${OUT}  
@@ -37,6 +38,7 @@ OUT=/scratch/yz77862/mRNA/gene_guide/shell/${INPUT}.sh
     echo "--outFileNamePrefix ${INPUT} \\"  >> ${OUT}  
     echo "--outFilterScoreMin 50 \\" >> ${OUT}  
     echo "--outFilterMultimapNmax 10000" >> ${OUT}  
+    echo "--sjdbGTFfile \${gtf}" >> ${OUT}  
     echo " "  >> ${OUT}
     echo "cd /scratch/yz77a862/mRNA/gene_guide/round2"  >> ${OUT}
     echo " " >> ${OUT}
