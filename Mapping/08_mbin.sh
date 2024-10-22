@@ -2,13 +2,13 @@
 #SBATCH --job-name=EMbin_mapping              
 #SBATCH --partition=batch   
 #SBATCH --nodes=1                   
-#SBATCH --ntasks=7               
-#SBATCH --cpus-per-task=18            
+#SBATCH --ntasks=1               
+#SBATCH --cpus-per-task=11            
 #SBATCH --mem=400G
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=030:00:00              
-#SBATCH --output=${INPUT}_fq_bam.out           
-#SBATCH --error=${INPUT}_fq_bam.err
+#SBATCH --output=EMbin_mapping.out           
+#SBATCH --error=EMbin_mapping.err
 
 ml CGmapTools/0.1.2-foss-2022a
 cd /scratch/yz77862/EMmethyl
