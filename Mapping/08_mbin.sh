@@ -18,3 +18,9 @@ cgmaptools mbin -i ${GENOME}.CGmap.gz -C CG -B 10000 -c 1  > ${GENOME}.mCG.mbin.
 cgmaptools mbin -i ${GENOME}.CGmap.gz -C CHG -B 10000 -c 1  > ${GENOME}.mCHG.mbin.10k.data
 cgmaptools mbin -i ${GENOME}.CGmap.gz -C CHH -B 10000 -c 1  > ${GENOME}.mCHH.mbin.10k.data
 done
+ml CGmapTools/0.1.2-foss-2022a
+GENOME=yz306-6
+cgmaptools mbin -i ${GENOME}.CGmap.gz -C CG -B 500000 -c 1  > ${GENOME}.mCG.mbin.500k.data
+cgmaptools mbin -i ${GENOME}.CGmap.gz -C CHG -B 500000 -c 1  > ${GENOME}.mCHG.mbin.500k.data
+cgmaptools mbin -i ${GENOME}.CGmap.gz -C CHH -B 500000 -c 1  > ${GENOME}.mCHH.mbin.500k.data
+
