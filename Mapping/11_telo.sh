@@ -17,7 +17,7 @@ ml IGV/2.16.1-Java-11
 
 ABS_genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa  
 #17-4-2-KAPA 4-3-KAPA 7-TRI-3-KAPA YZ306-1-KAPA YZ306-2-CENH3-1 YZ306-2-CENH3-2 YZ306-2-IgG-1 YZ306-2-IgG-2
-i=17-4-2-KAPA
+i=YZ306-2-IgG-2
 fastq1=/scratch/yz77862/work_illu/30-1097707915_chr11-cuttag-KAPA/${i}_R1_001_val_1.fq.gz
 fastq2=/scratch/yz77862/work_illu/30-1097707915_chr11-cuttag-KAPA/${i}_R2_001_val_2.fq.gz
 bwa mem ${ABS_genome} ${fastq1} ${fastq2} -M -t 24  > ${i}_ABS.sam 
