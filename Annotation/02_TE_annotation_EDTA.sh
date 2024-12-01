@@ -2,17 +2,17 @@
 #SBATCH --job-name=EDTA
 #SBATCH --partition=batch
 #SBATCH --ntasks=1
-#SBATCH --mem=100G
+#SBATCH --mem=400G
 #SBATCH --time=68:00:00
 #SBATCH --export=NONE
 #SBATCH --output=EDTA.out
 #SBATCH --error=EDTA.err
 
-cd /scratch/yz77862/ABS_PacBio_version1
-ml EDTA/2.1.0
+cd /scratch/yz77862/TE_annotation
+ml EDTA/2.2.0
 
-genome=/scratch/yz77862/ABS_PacBio_version1/AbsGenomePBHIFI_version_1.fa
-cds=/scratch/yz77862/B73v5_genome/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1.cds.fa
+genome=/scratch/yz77862/TE_annotation/AbsGenomePBHIFI_version_1.fa
+cds=/scratch/yz77862/TE_annotation/Zm-A188-REFERENCE-KSU-1.0_Zm00056aa.1.cds.fa
 
 EDTA.pl \
   --genome ${genome} \
