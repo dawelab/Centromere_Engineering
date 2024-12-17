@@ -21,7 +21,7 @@ step 2. Misassembled (a contig is wrongly connected by (TAC)n repeats) and over-
 
 step 3. Gene annotation is performed by Liftoff used A188 as a guide.
 
-step 4. TE annotation is performed by `EDTA`, the parameters selection refer to what Ou Shuju did the maize pan genome assembly published by Hufford et.al (2021) .
+step 4. TE annotation is performed by `EDTA`, parameters selection refers to what Ou Shuju did for the maize pan genome assembly published by Hufford et.al (2021) .
    
 step 5. The annotation of ABS and pACH25 are done by `blastn`.  
 
