@@ -85,7 +85,7 @@ step3: The resulting files in CGmap format were processed using `CGmapTools v.1.
 step4: Results plotted with gpplot2 wrapped in tidyverse. 
 
 
-###4. Recovery of stable, functional chromosome pairs in maize.
+### 4. Recovery of stable, functional chromosome pairs in maize.
 
 <img width="299" alt="image" src="https://github.com/user-attachments/assets/d5f9edba-5b34-44ac-a9e6-717764578a32" />
 
