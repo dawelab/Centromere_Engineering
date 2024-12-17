@@ -7,7 +7,7 @@ This repository contains data, code, and resources supporting the paper "Reshapi
 
 ** Key highlights && Repository Structure:**
 
-*<The structure of ABS4 and its annotation.>
+*The structure of ABS4 and its annotation.
 
 
 <img width="544" alt="image" src="https://github.com/user-attachments/assets/b33a219c-5152-42a4-83ed-9c4e7c96ea4e" />
