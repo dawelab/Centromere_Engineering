@@ -9,12 +9,18 @@ Key highlights:
 <img width="544" alt="image" src="https://github.com/user-attachments/assets/b33a219c-5152-42a4-83ed-9c4e7c96ea4e" />
 
 
-*Generation of synthetic centromeres using LexA-CENH3 tethering.
+*Generation of synthetic centromeres using LexA-CENH3 tethering and created neochromosomes.
+
+<img width="480" alt="image" src="https://github.com/user-attachments/assets/1cbfaa84-71aa-4c5c-bc9b-260b0d1aafca" />
 
 
 *Characterization of neochromosomes via CUT&Tag, RNA-seq, and EM-seq.
 
 <img width="432" alt="image" src="https://github.com/user-attachments/assets/c06d50ff-87c0-44c6-acd6-40852df80354" />
+
+
+<img width="334" alt="image" src="https://github.com/user-attachments/assets/24464638-4687-4f42-9452-498401005138" />
+
 
 
 *Recovery of stable, functional chromosome pairs in maize.
