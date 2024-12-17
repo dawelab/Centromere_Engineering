@@ -40,7 +40,7 @@ step2: `bedtools makewindows` generated 100kb window;
 
 step3: `bedtools intersect -c` calculate the read count for each bin;
 
-step4: The polidy estimation is done R by: `mutate(ploidy = 2 * (count / sum(count)) * length(count))`;
+step4: The polidy estimation is done in R by: `mutate(ploidy = 2 * (count / sum(count)) * length(count))`;
 
 step5: Visualized it in R using ggplot2 with each dot represents an estimation of ploidy at 100kb window.
 
