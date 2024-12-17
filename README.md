@@ -22,7 +22,7 @@ step 4. TE annotation is performed by `EDTA`, the parameters selection refer to 
    
 step 5. The annotation of ABS and pACH25 are done by `blastn`.  
 
-step 6. The visualization here used Karyotype package in R. The visualization in the main figure used customize script under mapping folder.
+step 6. The visualization here used Karyotype package in R. The visualization in the main figure used customize script under mapping folder, it is way easier than you think: acquire the start and end position of the block you like (gene, TE or others) and used `geom_rect` to visualize each block. You can adjust rect position by assigning different heights (I used y to denote in the script). 
 
 
 *Generation of synthetic centromeres using LexA-CENH3 tethering and created neochromosomes.
@@ -67,7 +67,7 @@ step2: `Featurecount` is used to calculate the read count for each exon
 
 step3: Gene read count is sum in R and DESeq is used to perform fold change, RLEs and DEG analysis.
 
-step4: The visualization is done by customize R script.
+step4: The visualization is done by customize R script. Putting two histograms in one plot only requires a scale factor to shirk or enlarge one distribution. Here is a trick, fix one distribution you like and scale the other one!
 
 
 3. EM-seq:
