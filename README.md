@@ -90,14 +90,13 @@ step4: Results plotted with gpplot2 wrapped in tidyverse.
 <img width="299" alt="image" src="https://github.com/user-attachments/assets/d5f9edba-5b34-44ac-a9e6-717764578a32" />
 
 
-
 ## **Data Availability**
 
 NCBI BioProject: PRJNA874319
 
 ABS4 Genome: Zenodo
 
-##Dependencies
+## Dependencies
 
 **Tools**: Hifiasm, RagTag, BWA, BEDTools, STAR, DESeq2, ggplot2, BS-Seeker2, CGmapTools.
 
