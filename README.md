@@ -44,7 +44,7 @@ step4: The polidy estimation is done R by: `mutate(ploidy = 2 * (count / sum(cou
 
 step5: Visualized it in R using ggplot2 with each dot represents an estimation of ploidy at 100kb window.
 
-Here, we tested three different references: 1. ABS4 assembly where we first seed centromeres; 2. W22 genome where we kept backcrossing to neochrs; 3. A distantly related but near perfect assembly --- Mo17. W22 yields the most consistent results. The code for reference testing can be found under mapping folding.
+Here, we tested three different references: 1. ABS4 assembly where we first seed centromeres; 2. W22 genome where we kept backcrossing to neo4bs; 3. A distantly related but near perfect assembly --- Mo17. W22 yields the most consistent results. The code for reference testing can be found under mapping folding.
 
 Even I called the object ploidy estimation here. But it is not ploidy, one chromosome can only have one ploidy but we have thousands of data points here. 
 
