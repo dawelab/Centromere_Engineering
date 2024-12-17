@@ -103,7 +103,7 @@ ABS4 Genome: Zenodo
 
 ## **Languages**: R, Bash.
 
-*Code: All scripts and analysis pipelines are available in this repository.
+*Code: All scripts and analysis pipelines are available in this repository. Some other codes are included here for pre-analysis but not used in the analysis for the paper. e.g. (1. A single-end read simulation using customized R script to check the mapping performance of illumina reads (150nt) over repetitve region; 2. Calculate the proportion of ABS containing count for qualify control)
 
 
 
