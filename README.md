@@ -91,17 +91,17 @@ step4: Results plotted with gpplot2 wrapped in tidyverse.
 
 
 
-**Data Availability**
+## **Data Availability**
 
 NCBI BioProject: PRJNA874319
 
 ABS4 Genome: Zenodo
 
-Dependencies
+##Dependencies
 
 **Tools**: Hifiasm, RagTag, BWA, BEDTools, STAR, DESeq2, ggplot2, BS-Seeker2, CGmapTools.
 
-**Languages**: R, Bash.
+## **Languages**: R, Bash.
 
 *Code: All scripts and analysis pipelines are available in this repository.
 
