@@ -41,6 +41,8 @@ step4: The polidy estimation is done R by: `mutate(ploidy = 2 * (count / sum(cou
 
 step5: Visualized it in R using ggplot2 with each dot represents an estimation of ploidy at 100kb window.
 
+Here, we tested three different references: 1. ABS4 assembly where we first seed centromeres; 2. W22 genome where we kept back crossing neochrs; 3. A distantly related but near perfect assembly --- Mo17. W22 yield most consistent results. The code for reference testing can be found under mapping folding.
+
 
 
 *Characterization of neochromosomes via CUT&Tag, RNA-seq, and EM-seq.
