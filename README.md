@@ -19,9 +19,6 @@ Key highlights:
 <img width="432" alt="image" src="https://github.com/user-attachments/assets/c06d50ff-87c0-44c6-acd6-40852df80354" />
 
 
-<img width="334" alt="image" src="https://github.com/user-attachments/assets/24464638-4687-4f42-9452-498401005138" />
-
-
 
 *Recovery of stable, functional chromosome pairs in maize.
 
