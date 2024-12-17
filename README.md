@@ -31,7 +31,7 @@ This repository contains data, code, and resources supporting the paper "Reshapi
 
 Low coverage illumina sequencing is used to estimate the polidy of chromosome 4 by following work flow:
 
-step1: bwa index the W22 and mapped illumina seq to it;
+step1: `bwa` index the W22 and mapped illumina seq to it;
 
 step2: `bedtools makewindows` generated 100kb window; 
 
@@ -49,7 +49,7 @@ step5: Visualized it in R using ggplot2 with each dot represents an estimation o
 
 1. Cut & Tag Pipeline:
    
-step1: bwa index the ABS4 inbred assembly and mapped illumina seq to it;
+step1: `bwa` index the ABS4 inbred assembly and mapped illumina seq to it;
 
 step2: `bedtools makewindows` generated 10kb window (Smaller bins help to see if CENH3 goes over gene); 
 
@@ -95,7 +95,7 @@ Dependencies
 
 **Tools**: Hifiasm, RagTag, BWA, BEDTools, STAR, DESeq2, ggplot2, BS-Seeker2, CGmapTools.
 
-**Languages**: Python, R, Bash.
+**Languages**: R, Bash.
 
 *Code: All scripts and analysis pipelines are available in this repository.
 
