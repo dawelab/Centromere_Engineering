@@ -27,10 +27,6 @@ Key highlights:
 <img width="299" alt="image" src="https://github.com/user-attachments/assets/d5f9edba-5b34-44ac-a9e6-717764578a32" />
 
 
-*Data Availability: Sequencing data are deposited in NCBI BioProject PRJNA874319. The ABS4 genome assembly and annotations are available on Zenodo.
-
-
-
 **Repository Structure**
 
 
