@@ -29,6 +29,51 @@ Key highlights:
 
 *Data Availability: Sequencing data are deposited in NCBI BioProject PRJNA874319. The ABS4 genome assembly and annotations are available on Zenodo.
 
+
+
+**Repository Structure**
+
+
+1. Genome Assembly
+   
+Scripts for assembling PacBio HiFi reads using Hifiasm and scaffolding with RagTag.
+
+Tools for detecting LexO binding sites and annotation with Liftoff and EDTA.
+
+2. CUT&Tag Analysis
+
+Pipelines for mapping CENH3 reads with BWA-mem.
+
+Code for window-based enrichment calculations and visualization using BEDTools and ggplot2.
+
+3. RNA-Seq Analysis
+   
+Scripts for trimming adapters, alignment with STAR, and expression quantification using FeatureCounts.
+
+Differential expression analysis via DESeq2.
+
+4. DNA Methylation Analysis
+   
+EM-seq pipelines for methylation calling with BS-Seeker2.
+
+Tools for calculating and visualizing methylation across genomic windows.
+
+5. Visualization & Integration
+   
+Final scripts for generating figures integrating gene expression, methylation, and centromere data.
+
+Data Availability
+
+NCBI BioProject: PRJNA874319
+
+ABS4 Genome: Zenodo
+
+Dependencies
+
+**Tools**: Hifiasm, RagTag, BWA, BEDTools, STAR, DESeq2, ggplot2, BS-Seeker2, CGmapTools.
+
+**Languages**: Python, R, Bash.
+
 *Code: All scripts and analysis pipelines are available in this repository.
 
 
