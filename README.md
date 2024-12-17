@@ -6,15 +6,20 @@ This repository contains data, code, and resources supporting the paper "Reshapi
 Key highlights:
 *The structure of ABS4 and its annotation.
 
-<img width="299" alt="image" src="https://github.com/user-attachments/assets/d5f9edba-5b34-44ac-a9e6-717764578a32" />
-
-*Generation of synthetic centromeres using LexA-CENH3 tethering.
 <img width="544" alt="image" src="https://github.com/user-attachments/assets/b33a219c-5152-42a4-83ed-9c4e7c96ea4e" />
 
 
+*Generation of synthetic centromeres using LexA-CENH3 tethering.
+
+
 *Characterization of neochromosomes via CUT&Tag, RNA-seq, and EM-seq.
+<img width="432" alt="image" src="https://github.com/user-attachments/assets/c06d50ff-87c0-44c6-acd6-40852df80354" />
+
 
 *Recovery of stable, functional chromosome pairs in maize.
+
+<img width="299" alt="image" src="https://github.com/user-attachments/assets/d5f9edba-5b34-44ac-a9e6-717764578a32" />
+
 
 *Data Availability: Sequencing data are deposited in NCBI BioProject PRJNA874319. The ABS4 genome assembly and annotations are available on Zenodo.
 
