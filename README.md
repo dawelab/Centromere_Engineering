@@ -18,7 +18,7 @@ This repository contains data, code, and resources supporting the paper "Reshapi
 
 3. Gene annotation is performed by Liftoff used A188 as a guide.
 
-4. TE annotation is performed by EDTA.
+4. TE annotation is performed by `EDTA`, the parameters selection refer to what Ou Shuju did the maize pan genome assembly published by Hufford et.al (2021) .
    
 5. The annotation of ABS and pACH25 are done by `blastn`.  
 
