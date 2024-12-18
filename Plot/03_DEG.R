@@ -89,7 +89,6 @@ hist(deg_CENH3_affected_gene$log2FoldChange)
 
 #######Plotting for the overlaying histogram
 # Generate sample data
-set.seed(123)
 data1 <- res$log2FoldChange
 data2 <- deg_CENH3_affected_gene$log2FoldChange
 
