@@ -1,3 +1,4 @@
+##the input data is save in the same folder named reformat_recombination_data
 library(readxl)
 library(ggplot2)
 
