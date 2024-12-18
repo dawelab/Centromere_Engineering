@@ -64,6 +64,8 @@ step3: `bedtools intersect -c` calculate the read count for each bin;
 step4: The visualization is done by customize R script enabling color-blinding selection.
 
 #### 3.2. RNA-seq Pipeline:
+<img width="275" alt="image" src="https://github.com/user-attachments/assets/5ff4a3d4-7cfe-4286-a19f-80e6cea0d3bc" />
+
 
 step1: `STAR` index the ABS4 inbred assembly and mapped illumina seq to it;
 
@@ -85,7 +87,13 @@ step3: The resulting files in CGmap format were processed using `CGmapTools v.1.
 step4: Results plotted with gpplot2 wrapped in tidyverse. 
 
 
+<img width="360" alt="image" src="https://github.com/user-attachments/assets/c8572568-61d0-41e7-8df1-6167e68fa463" />
+
+
+
 ### 4. Recovery of stable, functional chromosome pairs in maize.
+
+The root-tip FISH verified the 11-chromosome line carring ABS4 (synthetic centromere), which stained as FITC (green).
 
 <img width="299" alt="image" src="https://github.com/user-attachments/assets/d5f9edba-5b34-44ac-a9e6-717764578a32" />
 
