@@ -5,9 +5,9 @@
 #SBATCH --mem=200G
 #SBATCH --ntasks=7
 #SBATCH --ntasks-per-node=1
-#SBATCH --mail-user=ys33815@uga.edu
+#SBATCH --mail-user=yz77862@uga.edu
 #SBATCH --mail-type=END,FAIL
-##e end begin fail
+
 
 module load STAR/2.7.10b-GCC-11.3.0
 cd /scratch/yz77862/mRNA
