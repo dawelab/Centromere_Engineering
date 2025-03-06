@@ -6,7 +6,7 @@ if [[ ! -f "$list" ]]; then
 fi
 
 while read -r i; do
-    out=/scratch/yz77862/cut_data/shell/${i}_mapping.sh
+    out=/scratch/yz77862/cut_data/shell_2/${i}_mapping.sh
     echo '#!/bin/bash' >> ${out}
     echo "#SBATCH --job-name=${i}_mapping" >> ${out}                 
     echo "#SBATCH --partition=batch" >> ${out}   		                            
@@ -17,15 +17,12 @@ while read -r i; do
     echo "#SBATCH --output=${i}_normalization.out" >> ${out}   			  
     echo "#SBATCH --error=${i}_normalization.err" >> ${out}
     echo "set -e" >> ${out}  # Exit on error
-    echo "ml BWA/0.7.17-GCCcore-11.3.0" >> ${out}  
+    echo "ml SAMtools" >> ${out} 
     echo "cd /scratch/yz77862/cut_data/BAM" >> ${out} 
     echo "output_dir=/scratch/yz77862/cut_data/BAM" >> ${out} 
     echo "ABS_genome=/scratch/yz77862/ABS_ver1/AbsGenomePBHIFI_version_1.fa" >> ${out}   
-    echo "fastq1=/scratch/yz77862/cut_data/trimmed/${i}_R1_001_val_1.fq.gz" >> ${out} 
-    echo "fastq2=/scratch/yz77862/cut_data/trimmed/${i}_R2_001_val_2.fq.gz" >> ${out} 
-
-    # Mapping
-    echo "bwa mem \${ABS_genome} \${fastq1} \${fastq2} -M -t 4 > \${output_dir}/${i}_ABS.sam || { echo 'BWA failed for ${i}'; exit 1; }" >> ${out}  
+    echo "fastq1=/scratch/yz77862/cut_data/trimmed/${i}_1_val_1.fq" >> ${out} 
+    echo "fastq2=/scratch/yz77862/cut_data/trimmed/${i}_2_val_2.fq" >> ${out} 
 
     # Convert, Sort, and Filter
     echo "samtools view -b -F 4 \${output_dir}/${i}_ABS.sam | samtools sort -o \${output_dir}/${i}_ABS_sorted.bam" >> ${out}  
