@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=bwa_index                     
+#SBATCH --job-name=hifiasm                     
 #SBATCH --partition=highmem_p		                            
 #SBATCH --ntasks=1			                            
 #SBATCH --cpus-per-task=4		                       
 #SBATCH --mem=800gb			                               
 #SBATCH --time=168:00:00  		                          
-#SBATCH --output=bwa_index.out			  
-#SBATCH --error=bwa_index.err
+#SBATCH --output=hifiasm.out			  
+#SBATCH --error=hifiasm.err
 
 ml Hifiasm/0.19.4-r575-foss-2019b
 cd /scratch/yz77862/Pac_bio_HIFI/ftp.genome.arizona.edu/hifiasm
