@@ -3,8 +3,8 @@
 #SBATCH --partition=batch		                            
 #SBATCH --ntasks=1			                            
 #SBATCH --cpus-per-task=4 		                       
-#SBATCH --mem=400gb  			                               
-#SBATCH --time=168:00:00   		                          
+#SBATCH --mem=100gb  			                               
+#SBATCH --time=008:00:00   		                          
 #SBATCH --output=SRR.out 			  
 #SBATCH --error=SRR.err
 
